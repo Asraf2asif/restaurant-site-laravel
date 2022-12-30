@@ -1,0 +1,71 @@
+/*-------------------------------------------------------------
+    Template Name:
+    Template URL:
+    Author Name:
+    Author URL:
+    Version:
+--------------------------------------------------------------*/
+/*-------------------------------------------------------------
+    1. Author CSS
+    2. Preloader
+    3. Main Menu
+    4. Header
+    5. Banner
+    6. Welcome
+    7. Food Area
+    8. Reservation
+    9. Deshes
+    10. Testimonial
+    11. Update
+    12. Table
+    13. Footer
+    14. About
+    15. Food Menu
+    16. Blog Home
+    17. Blog Details
+    18. Contact
+    19. Elements
+    20. Button
+    21. Form
+    22. Other
+--------------------------------------------------------------*/
+
+// Compass Framework
+@import 'compass';
+
+// Setting
+@import 'setting/variable';
+@import 'setting/mixin';
+
+// Base
+@import 'base/base';
+
+// Google Font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700');
+
+
+// Layout
+@import 'layout/preloader';
+@import 'layout/nav';
+@import 'layout/header';
+@import 'layout/banner';
+@import 'layout/welcome';
+@import 'layout/food';
+@import 'layout/reservation';
+@import 'layout/deshes';
+@import 'layout/testimonial';
+@import 'layout/update';
+@import 'layout/table';
+@import 'layout/footer';
+@import 'layout/about';
+@import 'layout/menu';
+@import 'layout/blog-home';
+@import 'layout/blog-details';
+@import 'layout/contact';
+@import 'layout/elements';
+
+// Module
+@import 'module/btn';
+@import 'module/form';
+@import 'module/other';

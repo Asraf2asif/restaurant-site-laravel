@@ -1,0 +1,32 @@
+/* 9. Deshes */
+.deshes-area {
+    span {
+        color: $primary-color;
+    }
+    h1 {
+        color: $heading-text;
+        font-style: inherit;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 90px;
+            width: 200px;
+            height: 1px;
+            background: $heading-text;
+        }
+    }
+    .style-change {
+        font-family: $body-font;
+        font-size: 30px;
+        font-weight: 700;
+        display: block;
+    }
+    .deshes-text {
+        padding-left: 90px;
+        @include portrait-phone(){
+            padding-left: 0;
+        }
+    }
+}

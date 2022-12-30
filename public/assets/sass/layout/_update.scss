@@ -1,0 +1,20 @@
+/* 11. Update */
+.update-area {
+    .single-food {
+        @include landscape-phone(){
+            width: 70%;
+            margin: auto;
+        }
+        .food-content {
+            padding: 40px 30px;
+            background: $dark;
+            @include transition(.5s);
+        }
+        &:hover {
+            .food-content {
+                background: $light;
+                @include box-shadow(0 10px 20px $shadow);
+            }
+        }
+    }
+}

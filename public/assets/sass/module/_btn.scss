@@ -1,0 +1,46 @@
+/* 15. Button */
+.template-btn {
+    color: $heading-text;
+    background: $primary-color;
+    font-family: $body-font;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    display: inline-block;
+    padding: 12px 30px!important;
+    @include transition(all .5s);
+    &:hover {
+        color: $heading-text;
+        background: transparent;
+        border: 1px solid $primary-color;
+    }
+}
+.template-btn2 {
+    &:hover {
+        color: $primary-color;
+    }
+}
+.template-btn3 {
+    color: $heading-text;
+    font-family: $body-font;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    span {
+        position: absolute;
+        top: 0;
+        left: 110%;
+        color: $heading-text;
+        @include transition(all .5s);
+    }
+    &:hover {
+        color: $heading-text;
+        span {
+            color: $primary-color;
+            left: 115%;
+        }
+    }
+}

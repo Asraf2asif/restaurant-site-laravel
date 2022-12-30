@@ -1,0 +1,34 @@
+/* 6. Welcome */
+.welcome-area {
+    .style-change {
+        color: $primary-color;
+        font-style: italic;
+    }
+    .welcome-img {
+        padding-left: 10%;
+        @include landscape-phone(){
+            padding: 0;
+        }
+        @include portrait-phone(){
+            padding: 0;
+        }
+    }
+    .welcome-text {
+        padding-right: 50%;
+        @include desktop-large(){
+            padding-right: 30%;
+        }
+        @include desktop(){
+            padding-right: 10%;
+        }
+        @include tablet(){
+            padding-right: 10%;
+        }
+        @include landscape-phone(){
+            padding: 0 5%;
+        }
+        @include portrait-phone(){
+            padding: 0 5%;
+        }
+    }
+}

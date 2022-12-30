@@ -1,0 +1,140 @@
+/* 3. Main Menu */
+.main-menu {
+    ul {
+        float: right;
+        @include tablet() {
+            display: none;
+            float: left;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 4;
+            background: $dark;
+            width: 100%;
+            padding: 20px 20px 30px;
+        }
+        @include landscape-phone() {
+            display: none;
+            float: left;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 4;
+            background: $dark;
+            width: 100%;
+            padding: 20px 20px 30px;
+        }
+        @include portrait-phone() {
+            display: none;
+            float: left;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 4;
+            background: $dark;
+            width: 100%;
+            padding: 20px 20px 30px;
+        }
+        li {
+            display: inline;
+            position: relative;
+            @include tablet() {
+                display: block;
+            }
+            @include landscape-phone() {
+                display: block;
+            }
+            @include portrait-phone() {
+                display: block;
+            }
+            a {
+                color: $heading-text;
+                font-family: $body-font;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 600;
+                display: inline-block;
+                padding: 15px;
+            }
+            &:hover {
+                ul.sub-menu {
+                    @include opacity(1);
+                    visibility: visible;
+                    top: 100%;
+                }
+            }
+            ul.sub-menu {
+                padding: 10px;
+                @include opacity(0);
+                visibility: hidden;
+                position: absolute;
+                top: 150%;
+                left: 30px;
+                width: 250px;
+                background: $dark;
+                z-index: 2;
+                @include transition(.5s);
+                li {
+                    display: block;
+                    a {
+                        @include transition(.3s);
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.main-menu2 {
+    ul {
+        a {
+            color: $light!important;
+            @include tablet(){
+                color: $heading-text!important;
+            }
+            @include landscape-phone(){
+                color: $heading-text!important;
+            }
+            @include portrait-phone(){
+                color: $heading-text!important;
+            }
+        }
+        ul.sub-menu {
+            a {
+                color: $heading-text!important;
+                &:hover {
+                    color: $primary-color!important;
+                }
+            }
+        }
+    }
+}
+.custom-navbar {
+    position: absolute;
+    top: -47px;
+    right: 15px;
+    background: $primary-color;
+    padding: 7px 10px;
+    @include border-radius(3px);
+    @include transition(.2s);
+    cursor: pointer;
+    display: none;
+    @include tablet() {
+        display: block;
+    }
+    @include landscape-phone() {
+        display: block;
+    }
+    @include portrait-phone() {
+        display: block;
+    }
+    span {
+        background: $light;
+        display: block;
+        width: 30px;
+        margin: 6px 0;
+        height: 2px;
+    }
+}

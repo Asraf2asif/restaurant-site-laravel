@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    @apply block;
+  }
+}
+
+@layer components {
+  .top-left-0 {
+    @apply top-0 left-0;
+  }
+  .top-left-1\/2 {
+    @apply top-1/2 left-1/2;
+  }
+  .absolute-center-parent {
+    @apply fixed top-0 left-0;
+  }
+  .absolute-center-child {
+    @apply absolute top-1/2 left-1/2 translate-x-y-2/4;
+  }
+  .size-full {
+    @apply w-full h-full;
+  }
+  .size-10 {
+    @apply w-10 h-10;
+  }
+  .translate-x-y-2\/4 {
+    /*    transform: translate(50%, 50%);*/
+    @apply transform translate-x-2/4 translate-y-2/4;
+  }
+  /* ... */
+}

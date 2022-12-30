@@ -1,0 +1,77 @@
+/* 13. Footer */
+.footer-widget {
+    background: $footer;
+    .single-widget1 {
+        padding-right: 30px;
+        @include tablet(){
+            padding-right: 0;
+        }
+    }
+    .single-widget {
+        h5 {
+            color: $primary-color;
+        }
+        i {
+            color: inherit;
+        }
+    }
+}
+.footer-widget2 {
+    background: $dark;
+    .single-widget {
+        h5 {
+            color: $heading-text;
+        }
+    }
+}
+.footer-copyright {
+    padding: 30px 0;
+    background: $copyright;
+    color: $light;
+    .color {
+        color: $primary-color;
+    }
+    ul {
+        float: right;
+        @include landscape-phone() {
+            float: left;
+            margin-top: 30px;
+        }
+        @include portrait-phone() {
+            float: left;
+            margin-top: 20px;
+        }
+        li {
+            display: inline;
+            margin-left: 25px;
+            i {
+                display: inline-block;
+                color: $light;
+                @include transition(.3s);
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+        .no-margin {
+            @include landscape-phone() {
+                margin-left: 0;
+            }
+            @include portrait-phone() {
+                margin-left: 0;
+            }
+        }
+    }
+}
+.footer-copyright2 {
+    background: $dark;
+    color: inherit;
+    ul {
+        i {
+            color: $body-text!important;
+            &:hover {
+                color: $primary-color!important;
+            }
+        }
+    }
+}

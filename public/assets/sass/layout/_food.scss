@@ -1,0 +1,53 @@
+/* 7. Food Area */
+.food-area {
+    background-image: url('../images/food-bg.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    position: relative;
+    @include tablet(){
+        background-image: none;
+    }
+    @include landscape-phone(){
+        background-image: none;
+    }
+    @include portrait-phone(){
+        background-image: none;
+    }
+    .food-img {
+        overflow: hidden;
+        img {
+            @include transition(.5s);
+        }
+    }
+    .food-content {
+        padding: 30px;
+        background: $dark;
+        @include transition(.5s);
+        .style-change {
+            color: $primary-color;
+            font-family: $body-font;
+            font-size: 20px;
+            font-weight: 700;
+            @include transition(.5s);
+        }
+        p {
+            @include transition(.5s);
+        }
+    }
+    .single-food {
+        &:hover {
+            img {
+                @include scale(1.1);
+            }
+            .food-content {
+                background: $primary-color;
+                .style-change {
+                    color: $heading-text;
+                }
+                p {
+                    color: $heading-text;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+/* 12. Table */
+.table-area {
+    background-image: url('../images/table-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative; 
+    z-index: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $overlay2;
+        z-index: -1;
+    }
+    .section-top2 {
+        h3,
+        p {
+            color: $light;
+        }
+    }
+    .input-group {
+        width: 30.33%;
+        float: left;
+        overflow: hidden;
+        margin: 0 1.5%;
+        @include landscape-phone(){
+            width: 100%;
+            float: none;
+        }
+        @include portrait-phone(){
+            width: 100%;
+            float: none;
+        }
+    }
+    input {
+        border-radius: 0 5px 5px 0;
+        border: none;
+        @include desktop(){
+            width: 65%;
+        }
+        @include tablet(){
+            width: 70%;
+        }
+        @include landscape-phone(){
+            width: 87%;
+        }
+        @include portrait-phone(){
+            width: 80%;
+        }
+    }
+    .input-group-text {
+        background: $light;
+        padding: 14px 20px;
+    }
+    .table-btn {
+        clear: both;
+    }
+}
