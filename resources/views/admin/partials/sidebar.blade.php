@@ -40,8 +40,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/icons/simple-line-icons.html">
-        <span class="menu-title">Foods</span>
+      <a class="nav-link" href="{{url('/foodmenu')}}">
+        <span class="menu-title">Food Menu</span>
         <i class="icon-globe menu-icon"></i>
       </a>
     </li>

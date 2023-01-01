@@ -5,10 +5,10 @@
 </head>
 <body>
     @include("home.partials.preloader")
-    @include("home.partials.header", ['navData' => 'navData'])     
+    @include("home.partials.header", ['navdata' => $navdata])     
     @include("home.partials.banner", ['bannerImg' => 'assets/images/banner-bg.jpg'])
     @include("home.partials.welcome")
-    @include("home.partials.food") 
+    @include("home.partials.food", ['fooddata' => $fooddata]) 
     {{--
     @include("home.partials.reservation")
     @include("home.partials.deshes")

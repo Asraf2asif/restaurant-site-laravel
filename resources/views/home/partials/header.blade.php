@@ -94,12 +94,12 @@
 					</x-jet-dropdown>
 				</div>
 				@else
-				<li>
+				<li class="text-right p-4 text-sm font-bold text-slate-800 uppercase md:text-left">
 					<a href="{{ route('login') }}" class="text-sm text-gray-500">Login</a>
 				</li>
 
 				@if (Route::has('register'))
-				<li>
+				<li class="text-right p-4 text-sm font-bold text-slate-800 uppercase md:text-left">
 					<a href="{{ route('register') }}" class="text-sm text-gray-500"
 						>Register</a
 					>

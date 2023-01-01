@@ -18,7 +18,7 @@
           brought. Divide after there. Was. Created god gathered don't you yielding
           herb you had. And isn't god.
         </p>
-        <a href="#" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out delay-150 duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">book a table</a>
+        <a href="#" class="book-table-btn">book a table</a>
       </div>
     </section>
     <!-- Welcome Area End -->

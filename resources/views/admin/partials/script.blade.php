@@ -1,5 +1,4 @@
 <!-- plugins:js -->
-@pushOnce('scripts')
 	<script src="admin/vendors/js/vendor.bundle.base.js"></script>
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
@@ -14,5 +13,4 @@
 	<!-- endinject -->
 	<!-- Custom js for this page -->
 	<script src="admin/js/dashboard.js"></script>
-@endPushOnce
 <!-- End custom js for this page -->

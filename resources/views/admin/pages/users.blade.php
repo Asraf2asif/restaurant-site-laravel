@@ -11,10 +11,9 @@
 					<table class="table table-hover">
 						<thead>
 							<tr class="bg-slate-800">
-								<th class="font-bold text-white">Name</th>
-								<th class="font-bold text-white">Email</th>
-								<th class="font-bold text-white">Created</th>
-								<th class="font-bold text-white">Action</th>
+								@foreach(["Name", "Email", "Created at", "Action"] as $heading)
+									<th class="font-bold text-white">{{$heading}}</th>
+								@endforeach
 							</tr>
 						</thead>
 						<tbody>
