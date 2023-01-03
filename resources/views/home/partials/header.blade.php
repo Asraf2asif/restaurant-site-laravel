@@ -1,9 +1,9 @@
 <!-- Header Area Starts -->
 <header
-	class="w-4/5 py-1 px-0 bg-white absolute top-5 left-1/2 z-1 transform translate-x-[-50%] translate-y-0 rounded mx-auto xl:w-11/12"
+	class="shadow-md w-40 right-0 mr-4 md:w-4/5 py-1 px-0 bg-white absolute top-5 md:left-1/2 z-1 md:transform md:translate-x-[-50%] md:translate-y-0 rounded md:mx-auto xl:w-11/12"
 >
 	<div class="mx-4 md:flex md:items-center">
-		<div class="px-4 md:shrink-0">
+		<div class="md:px-4 md:shrink-0">
 			<a href="index.html"
 				><img src="assets/images/logo/logo.png" alt="logo" class="m-auto max-w-[200px] w-9/12 p-5 h-auto md:m-0"
 			/></a>
@@ -14,9 +14,9 @@
 				<span></span>
 				<span></span>
 			</div>
-			<ul class="md:flex md:flex-wrap md:items-center md:justify-end">
+			<ul class="pb-2 md:pb-0 md:flex md:flex-wrap md:items-center md:justify-end">
 				@foreach ($navdata as $data)
-				     <li class="text-right p-4 text-sm font-bold text-slate-800 uppercase md:text-left">
+				     <li class="p-2.5 md:p-4 text-right text-sm md:font-bold text-slate-800 uppercase md:text-left">
 				     	<a href={{ $data['href'] }}>{{ $data['text'] }}</a>
 				     </li> 
 				@endforeach
