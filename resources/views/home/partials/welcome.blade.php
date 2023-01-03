@@ -1,10 +1,10 @@
     <!-- Welcome Area Starts -->
-    <section class="mt-28 mx-5 md:mx-auto md:flex md:flex-wrap md:item-center md:justify-center">
-      <div class="max-w-md w-full h-auto mx-auto md:mr-0">
+    <section class="mt-28 mx-5 mx-auto flex flex-wrap item-center justify-center">
+      <div class="max-w-md w-full h-auto mx-auto sm:mr-0">
         <img src="assets/images/welcome-bg.png" alt="" />
       </div>
 
-      <div class="mt-5 mt-md-0 max-w-lg mx-auto md:ml-16">
+      <div class="mt-5 md:mt-0 max-w-lg mx-auto sm:ml-8 md:ml-16">
         <h3 class="font-bold font-cursive-merie text-4xl">
           <span class="text-amber-400 leading-snug">welcome</span> <br /><span class=" leading-normal">to food fun</span>
         </h3>
