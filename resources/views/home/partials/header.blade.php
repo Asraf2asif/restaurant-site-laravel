@@ -1,6 +1,6 @@
 <!-- Header Area Starts -->
 <header
-	class="shadow-md w-40 right-0 mr-4 md:w-4/5 py-1 px-0 bg-white absolute top-5 md:left-1/2 z-1 md:transform md:translate-x-[-50%] md:translate-y-0 rounded md:mx-auto xl:w-11/12"
+	class="shadow-md right-0 md:right-1/2 mr-4 w-40 md:w-4/5 py-1 px-0 bg-white absolute top-5 z-1 md:transform md:translate-x-1/2 md:translate-y-0 rounded md:mx-auto xl:w-11/12"
 >
 	<div class="mx-4 md:flex md:items-center">
 		<div class="md:px-4 md:shrink-0">
