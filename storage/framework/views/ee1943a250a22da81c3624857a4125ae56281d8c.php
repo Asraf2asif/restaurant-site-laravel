@@ -1,5 +1,5 @@
 <!-- Table Area Starts -->
-    <section class="py-32 px-4 md:px-32 bg-no-repeat bg-center bg-cover w-full relative z-1" style="background-image: url({{ $tableBg }})">
+    <section class="py-32 px-4 md:px-32 bg-no-repeat bg-center bg-cover w-full relative z-1" style="background-image: url(<?php echo e($tableBg); ?>)">
       <span class="overlay absolute w-full h-full bg-slate-900/70 left-0 top-0 z-n1"></span>
       <div class="m-4 max-w-md mt-5 p-4 text-center text-white mx-auto">
         <h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">Book <span class="text-amber-400 leading-snug">your</span> table</h3>
@@ -45,4 +45,4 @@
         </div>
       </form>
     </section>
-<!-- Table Area End -->
+<!-- Table Area End --><?php /**PATH E:\My Work\web\Resturent-Site\resources\views/home/partials/table.blade.php ENDPATH**/ ?>

@@ -27,14 +27,8 @@
     "postcss-vmin": "^3.0.0",
     "postcss-will-change": "^4.0.1",
     "tailwindcss": "^3.1.0",
-    "bootstrap": "^4.1.0",
     "cross-env": "^5.1",
-    "jquery": "^3.2",
-    "popper.js": "^1.12",
-    "resolve-url-loader": "^3.1.2",
-    "sass": "^1.15.2",
-    "sass-loader": "^7.1.0",
-    "vue": "^2.5.17"
+    "resolve-url-loader": "^3.1.2"
   },
   "resolutions": {
     "laravel-mix/webpack/terser-webpack-plugin/cacache/ssri": "^6.0.2"

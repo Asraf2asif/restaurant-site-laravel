@@ -52,18 +52,19 @@
     });
 
     // Nice Select
-    $("select").niceSelect();
+    // $("select").niceSelect();
 
     // Date Picker
     jQuery("#datepicker").datetimepicker({
       timepicker: false,
-      format: "d.m.Y",
+      format: "d/m/Y",
     });
 
     // Time Picker
-    jQuery("#datepicker2").datetimepicker({
+    jQuery("#timepicker").datetimepicker({
       datepicker: false,
-      format: "H:i",
+      format: "h:m",
+      formatTime: "h:m a",
     });
 
     // Google Map

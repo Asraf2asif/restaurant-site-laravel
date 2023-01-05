@@ -8,14 +8,14 @@
     @include("home.partials.header", ['navdata' => $navdata])     
     @include("home.partials.banner", ['bannerImg' => 'assets/images/banner-bg.jpg'])
     @include("home.partials.welcome")
-    @include("home.partials.food", ['fooddata' => $fooddata]) 
+    @include("home.partials.food", ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png']) 
     {{--
-    @include("home.partials.reservation")
-    @include("home.partials.deshes")
     @include("home.partials.testimonial")
-    @include("home.partials.update")
-    @include("home.partials.table")
-    @include("home.partials.footer")  --}} 
+    @include("home.partials.deshes")
+      --}} 
+
+    @include("home.partials.table", ['tableBg' => 'assets/images/table-bg.jpg'])
+    {{-- @include("home.partials.footer") --}}
 
     @include("home.partials.script")    
 </body>

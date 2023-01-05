@@ -6,3 +6,4 @@
 	<script src="assets/js/vendor/jquery.datetimepicker.full.min.js"></script>
 	<script src="assets/js/main.js"></script>
 
+<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/home/partials/script.blade.php ENDPATH**/ ?>

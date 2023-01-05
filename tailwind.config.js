@@ -21,6 +21,10 @@ module.exports = {
       },
       zIndex: {
         1: "1",
+        n1: "-1",
+      },
+      screens: {
+        "food-sm": "966px",
       },
     },
   },
