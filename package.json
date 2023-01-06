@@ -30,9 +30,6 @@
     "cross-env": "^5.1",
     "resolve-url-loader": "^3.1.2"
   },
-  "resolutions": {
-    "laravel-mix/webpack/terser-webpack-plugin/cacache/ssri": "^6.0.2"
-  },
   "browserslist": [
     ">0.001%"
   ]
