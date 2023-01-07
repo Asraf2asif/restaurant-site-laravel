@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         User::whereNotNull('id')->delete();
         foreach ($this->userdata as $data) {
             User::create([
-                'id' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                'id' => $data["id"],
                 'name' => $data["name"],
                 'usertype' => $data["usertype"],
                 'email' => $data["email"],

@@ -14,7 +14,7 @@ class CreateFoodTable extends Migration
     public function up()
     {
         Schema::create('food', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name', 200)->default("");
             $table->string('img', 250)->default("");
             $table->decimal('price', $precision = 10, $scale = 2)->default(0);

@@ -32,7 +32,7 @@ class FoodMenuSeeder extends Seeder
         Food::whereNotNull('id')->delete();
         foreach ($this->fooddata as $data) {
             Food::create([
-                'id' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                'id' => $data["id"],
                 'name' => $data["name"],
                 'img' => $data["img"],
                 'price' => $data["price"],
