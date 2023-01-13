@@ -40,7 +40,7 @@
     @apply transform translate-x-2/4 translate-y-2/4;
   }
   .book-table-btn {
-    @apply inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out delay-150 duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400;
+    @apply inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400;
   }
   /* ... */
 }
