@@ -11,9 +11,9 @@ class HomeController extends Controller
     private $navdata = [
         ["text" => "home", "href" => "#home"],
         ["text" => "about", "href" => "#about"],
-        ["text" => "menu", "href" => "#menu"],
-        ["text" => "chef", "href" => "#chef"],
+        ["text" => "menu", "href" => "#menu"],        
         ["text" => "testimonial", "href" => "#testimonial"],
+        ["text" => "book", "href" => "#book"],
         ["text" => "contact", "href" => "#contact"],
     ];
 
