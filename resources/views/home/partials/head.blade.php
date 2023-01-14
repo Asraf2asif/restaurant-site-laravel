@@ -11,9 +11,9 @@
 	type="image/x-icon"
 />
 <!-- CSS libraries -->
-<link rel="stylesheet" href="{{ asset('assets/css/animate-3.7.0.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
 {{-- google fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

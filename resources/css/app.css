@@ -28,7 +28,7 @@
     @apply fixed top-0 left-0;
   }
   .absolute-center-child {
-    @apply absolute top-1/2 left-1/2 translate-x-y-2/4;
+    @apply absolute top-1/2 left-1/2 transform translate-x-2/4 translate-y-2/4;
   }
   .size-full {
     @apply w-full h-full;

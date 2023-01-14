@@ -9,13 +9,13 @@
     @include("home.partials.banner", ['bannerImg' => 'assets/images/banner-bg.jpg'])
     @include("home.partials.welcome")
     @include("home.partials.food", ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png']) 
-    {{--
+
     @include("home.partials.testimonial")
     @include("home.partials.deshes")
-      --}} 
+
 
     @include("home.partials.table", ['tableBg' => 'assets/images/table-bg.jpg'])
-    {{-- @include("home.partials.footer") --}}
+    @include("home.partials.footer")
 
     @include("home.partials.script")    
 </body>
