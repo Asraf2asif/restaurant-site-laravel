@@ -40,19 +40,13 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('/foodmenu')}}">
+      <a class="nav-link" href="{{url('/foodmenulist')}}">
         <span class="menu-title">Food Menu</span>
         <i class="icon-globe menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/forms/basic_elements.html">
-        <span class="menu-title">Chefs</span>
-        <i class="icon-book-open menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="pages/charts/chartist.html">
+      <a class="nav-link" href="{{url('/reservationlist')}}">
         <span class="menu-title">Reservations</span>
         <i class="icon-chart menu-icon"></i>
       </a>

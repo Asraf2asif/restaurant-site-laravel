@@ -6,7 +6,7 @@
       </div>
 
       <div class="p-3 flex flex-wrap items-center justify-around">
-        <div class="pb-5 pr-5 basis-[400px] grow shrink max-w-[650px]">
+        <div class="p-5 basis-[400px] grow shrink max-w-[650px]">
           <h1 class="relative text-4xl font-semibold font-cursive-merie">01.
             <span class="absolute top-1/2 left-16 border-t border-slate-500 w-1/2"></span>
           </h1>

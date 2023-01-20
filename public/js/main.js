@@ -62,7 +62,7 @@
     // Time Picker
     jQuery("#timepicker").datetimepicker({
       datepicker: false,
-      format: "h:m",
+      format: "h:m a",
       formatTime: "h:m a",
     });
   });

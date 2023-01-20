@@ -25,6 +25,7 @@
 								@if($data->usertype == "0")
 								<td>
 									<a
+										onclick="return confirmDeleteUser({{ $data->id }} , '{{ $data->name }}');"
 										href="{{url('/deleteuser', $data->id)}}"
 										class="badge badge-danger cursor-pointer"
 										>Delete</a
@@ -41,4 +42,10 @@
 			</div>
 		</div>
 	</div>
+	<script>
+  function confirmDeleteUser(id, name) {
+      if(!confirm("Are You Sure to delete this user, Named: " + name + ", Id: " + id + "." ))
+      event.preventDefault();
+  }
+ </script>
 </x-home.index>

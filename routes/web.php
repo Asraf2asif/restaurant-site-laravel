@@ -15,23 +15,30 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
+/* home */
 Route::get('/', [HomeController::class, "index"]);
-
-Route::get('/users', [AdminController::class, "user"]);
-
-Route::get('/deleteuser/{id}', [AdminController::class, "deleteuser"]);
-
-Route::get('/foodmenu', [AdminController::class, "foodmenu"]);
-
-Route::post('/uploadfood', [AdminController::class, "uploadfood"]);
-
 Route::get('/redirects', [HomeController::class, "redirects"]);
+// home -- reservation
+Route::post('/makereservation', [HomeController::class, "makereservation"]);
 
+/* admin */
+// admin -- user
+Route::get('/users', [AdminController::class, "user"]);
+Route::get('/deleteuser/{id}', [AdminController::class, "deleteuser"]);
+// admin -- food
+Route::get('/foodmenulist', [AdminController::class, "foodmenulist"]);
+// admin -- food: add food
+Route::get('/addfoodmenu', [AdminController::class, "addfoodmenu"]);
+Route::post('/uploadfood', [AdminController::class, "uploadfood"]);
+// admin -- food: update food
+Route::get('/updatefoodmenu/{id}', [AdminController::class, "updatefoodmenu"]);
+Route::post('/updatefood/{id}', [AdminController::class, "updatefood"]);
+// admin -- food: delete food
+Route::get('/delfoodmenu/{id}', [AdminController::class, "delfoodmenu"]);
+// admin -- reservation
+Route::get('/reservationlist', [AdminController::class, "reservationlist"]);
+
+/* jetstream auth */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
