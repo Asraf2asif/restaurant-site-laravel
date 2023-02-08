@@ -18,4 +18,4 @@
     
     <?php echo $__env->make("admin.partials.script", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>        
   </body>
-</html><?php /**PATH E:\My Work\web\Resturent-Site\resources\views/components/home/index.blade.php ENDPATH**/ ?>
+</html><?php /**PATH E:\My Work\web\Resturent-Site\resources\views/components/admin/index.blade.php ENDPATH**/ ?>

@@ -1,5 +1,5 @@
 <?php if (isset($component)) { $__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Home\Index::class, []); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Home\Index::class, ['user' => $user,'isAdmin' => $isAdmin]); ?>
 <?php $component->withName('home.index'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>

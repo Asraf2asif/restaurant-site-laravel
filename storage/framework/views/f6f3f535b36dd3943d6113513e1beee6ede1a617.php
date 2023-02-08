@@ -3,6 +3,7 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
+        <?php if($isAdmin === true): ?>
         <div class="profile-image">
           <img
             class="img-xs rounded-circle"
@@ -12,9 +13,15 @@
           <div class="dot-indicator bg-success"></div>
         </div>
         <div class="text-wrapper">
-          <p class="profile-name"><?php echo e(Auth::user()->name); ?></p>
+          <p class="profile-name"><?php echo e($user->name); ?></p>
           <p class="designation">Administrator</p>
         </div>
+        <?php else: ?>
+        <div class="text-wrapper">
+          <p class="profile-name">Guest User</p>
+          <p class="designation">Guest</p>
+        </div>
+        <?php endif; ?>
         <div class="icon-container">
           <i class="icon-bubbles"></i>
           <div class="dot-indicator bg-danger"></div>
@@ -34,21 +41,27 @@
       <span class="nav-link">UI Elements Section</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo e(url('/users')); ?>">
+      <a class="nav-link" href="<?php echo e(url('/admin/userlist')); ?>">
         <span class="menu-title">Users</span>
         <i class="icon-layers menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo e(url('/foodmenulist')); ?>">
+      <a class="nav-link" href="<?php echo e(url('/admin/foodmenulist')); ?>">
         <span class="menu-title">Food Menu</span>
         <i class="icon-globe menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo e(url('/reservationlist')); ?>">
+      <a class="nav-link" href="<?php echo e(url('/admin/reservationlist')); ?>">
         <span class="menu-title">Reservations</span>
         <i class="icon-chart menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo e(url('/admin/spdishlist')); ?>">
+        <span class="menu-title">Special dishes</span>
+        <i class="icon-globe menu-icon"></i>
       </a>
     </li>
 
@@ -96,7 +109,6 @@
         </ul>
       </div>
     </li>
-    
   </ul>
 </nav>
 <?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/partials/sidebar.blade.php ENDPATH**/ ?>

@@ -107,39 +107,6 @@
           </a>
         </div>
       </li>
-      <li
-        class="nav-item dropdown language-dropdown d-none d-sm-flex align-items-center"
-      >
-        <a
-          class="nav-link d-flex align-items-center dropdown-toggle"
-          id="LanguageDropdown"
-          href="#"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <div class="d-inline-flex mr-3">
-            <i class="flag-icon flag-icon-us"></i>
-          </div>
-          <span class="profile-text font-weight-normal">English</span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-left navbar-dropdown py-2"
-          aria-labelledby="LanguageDropdown"
-        >
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-us"></i> English
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-fr"></i> French
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-ae"></i> Arabic
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-ru"></i> Russian
-          </a>
-        </div>
-      </li>
       <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -148,41 +115,43 @@
           data-toggle="dropdown"
           aria-expanded="false"
         >
+          <?php if($isAdmin === true): ?>
           <img
             class="img-xs rounded-circle ml-2"
             src="admin/images/faces/face8.jpg"
             alt="Profile image"
           />
-          <span class="font-weight-normal"> <?php echo e(Auth::user()->name); ?> </span></a
-        >
+          <span class="font-weight-normal"> <?php echo e($user->name); ?> </span>
+          <?php else: ?>
+          <span class="font-weight-normal"> user </span>
+          <?php endif; ?>
+        </a>
         <div
           class="dropdown-menu dropdown-menu-right navbar-dropdown"
           aria-labelledby="UserDropdown"
         >
+          <?php if($isAdmin === true): ?>
           <div class="dropdown-header text-center">
             <img
               class="img-md rounded-circle"
               src="admin/images/faces/face8.jpg"
               alt="Profile image"
             />
-            <p class="mb-1 mt-3"><?php echo e(Auth::user()->name); ?></p>
+            <p class="mb-1 mt-3"><?php echo e($user->name); ?></p>
             <p class="font-weight-light text-muted mb-0">
-              <?php echo e(Auth::user()->email); ?>
+              <?php echo e($user->email); ?>
 
             </p>
           </div>
           <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-speech text-primary"></i>
-            Messages</a
-          >
+            ><i class="dropdown-item-icon icon-speech text-primary"></i> Messages
+          </a>
           <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-energy text-primary"></i>
-            Activity</a
-          >
-          <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-question text-primary"></i>
-            FAQ</a
-          >
+            ><i class="dropdown-item-icon icon-energy text-primary"></i> Activity
+          </a>
+          <a class="dropdown-item">
+            <i class="dropdown-item-icon icon-question text-primary"></i> FAQ
+          </a>
 
           <!-- Account Management -->
           <div class="block px-4 py-2 text-xs text-gray-400">
@@ -190,36 +159,18 @@
 
           </div>
 
-          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown-link','data' => ['href' => ''.e(route('profile.show')).'','class' => 'dropdown-item']]); ?>
-<?php $component->withName('jet-dropdown-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => ''.e(route('profile.show')).'','class' => 'dropdown-item']); ?>
+          <a href="<?php echo e(route('profile.show')); ?>"
+            class="dropdown-item"
+          >
             <i class="dropdown-item-icon icon-user text-primary"></i> <?php echo e(__('Profile')); ?>
 
-           <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
+          </a>
 
           <?php if(Laravel\Jetstream\Jetstream::hasApiFeatures()): ?>
-          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown-link','data' => ['href' => ''.e(route('api-tokens.index')).'']]); ?>
-<?php $component->withName('jet-dropdown-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => ''.e(route('api-tokens.index')).'']); ?>
+          <a href="<?php echo e(route('api-tokens.index')); ?>">
             <?php echo e(__('API Tokens')); ?>
 
-           <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
+          </a>
           <?php endif; ?>
 
           <div class="border-t border-gray-100"></div>
@@ -227,21 +178,31 @@
           <!-- Authentication -->
           <form method="POST" action="<?php echo e(route('logout')); ?>" x-data>
             <?php echo csrf_field(); ?>
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown-link','data' => ['href' => ''.e(route('logout')).'','@click.prevent' => '$root.submit();','class' => 'dropdown-item']]); ?>
-<?php $component->withName('jet-dropdown-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => ''.e(route('logout')).'','@click.prevent' => '$root.submit();','class' => 'dropdown-item']); ?>
+            <a href="<?php echo e(route('logout')); ?>"
+              @click.prevent="$root.submit();"
+              class="dropdown-item"
+            >
               <i class="dropdown-item-icon icon-power text-primary"></i> <?php echo e(__('Log Out')); ?>
 
-             <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
+            </a>            
           </form>
+
+          <?php else: ?>
+          <a href="<?php echo e(route('login')); ?>"
+            class="dropdown-item"
+          >
+            <i class="dropdown-item-icon icon-user text-primary"></i> Login
+          </a>
+            <?php if(Route::has('register')): ?>
+            <a href="<?php echo e(route('register')); ?>"
+              class="dropdown-item"
+            >
+              <i class="dropdown-item-icon icon-user text-primary"></i> Register
+            </a>
+            <?php endif; ?>
+          <?php endif; ?>
+
+          <div class="py-2"></div>
         </div>
       </li>
     </ul>
