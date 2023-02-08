@@ -107,39 +107,6 @@
           </a>
         </div>
       </li>
-      <li
-        class="nav-item dropdown language-dropdown d-none d-sm-flex align-items-center"
-      >
-        <a
-          class="nav-link d-flex align-items-center dropdown-toggle"
-          id="LanguageDropdown"
-          href="#"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <div class="d-inline-flex mr-3">
-            <i class="flag-icon flag-icon-us"></i>
-          </div>
-          <span class="profile-text font-weight-normal">English</span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-left navbar-dropdown py-2"
-          aria-labelledby="LanguageDropdown"
-        >
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-us"></i> English
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-fr"></i> French
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-ae"></i> Arabic
-          </a>
-          <a class="dropdown-item">
-            <i class="flag-icon flag-icon-ru"></i> Russian
-          </a>
-        </div>
-      </li>
       <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -148,58 +115,59 @@
           data-toggle="dropdown"
           aria-expanded="false"
         >
+          @if ($isAdmin === true)
           <img
             class="img-xs rounded-circle ml-2"
             src="admin/images/faces/face8.jpg"
             alt="Profile image"
           />
-          <span class="font-weight-normal"> {{ Auth::user()->name }} </span></a
-        >
+          <span class="font-weight-normal"> {{ $user->name }} </span>
+          @else
+          <span class="font-weight-normal"> user </span>
+          @endif
+        </a>
         <div
           class="dropdown-menu dropdown-menu-right navbar-dropdown"
           aria-labelledby="UserDropdown"
         >
+          @if ($isAdmin === true)
           <div class="dropdown-header text-center">
             <img
               class="img-md rounded-circle"
               src="admin/images/faces/face8.jpg"
               alt="Profile image"
             />
-            <p class="mb-1 mt-3">{{ Auth::user()->name }}</p>
+            <p class="mb-1 mt-3">{{ $user->name }}</p>
             <p class="font-weight-light text-muted mb-0">
-              {{ Auth::user()->email }}
+              {{ $user->email }}
             </p>
           </div>
           <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-speech text-primary"></i>
-            Messages</a
-          >
+            ><i class="dropdown-item-icon icon-speech text-primary"></i> Messages
+          </a>
           <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-energy text-primary"></i>
-            Activity</a
-          >
-          <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-question text-primary"></i>
-            FAQ</a
-          >
+            ><i class="dropdown-item-icon icon-energy text-primary"></i> Activity
+          </a>
+          <a class="dropdown-item">
+            <i class="dropdown-item-icon icon-question text-primary"></i> FAQ
+          </a>
 
           <!-- Account Management -->
           <div class="block px-4 py-2 text-xs text-gray-400">
             {{ __('Manage Account') }}
           </div>
 
-          <x-jet-dropdown-link
-            href="{{ route('profile.show') }}"
+          <a href="{{ route('profile.show') }}"
             class="dropdown-item"
           >
             <i class="dropdown-item-icon icon-user text-primary"></i> {{
             __('Profile') }}
-          </x-jet-dropdown-link>
+          </a>
 
           @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-          <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
+          <a href="{{ route('api-tokens.index') }}">
             {{ __('API Tokens') }}
-          </x-jet-dropdown-link>
+          </a>
           @endif
 
           <div class="border-t border-gray-100"></div>
@@ -207,15 +175,31 @@
           <!-- Authentication -->
           <form method="POST" action="{{ route('logout') }}" x-data>
             @csrf
-            <x-jet-dropdown-link
-              href="{{ route('logout') }}"
+            <a href="{{ route('logout') }}"
               @click.prevent="$root.submit();"
               class="dropdown-item"
             >
               <i class="dropdown-item-icon icon-power text-primary"></i> {{
               __('Log Out') }}
-            </x-jet-dropdown-link>
+            </a>            
           </form>
+
+          @else
+          <a href="{{ route('login') }}"
+            class="dropdown-item"
+          >
+            <i class="dropdown-item-icon icon-user text-primary"></i> Login
+          </a>
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}"
+              class="dropdown-item"
+            >
+              <i class="dropdown-item-icon icon-user text-primary"></i> Register
+            </a>
+            @endif
+          @endif
+
+          <div class="py-2"></div>
         </div>
       </li>
     </ul>

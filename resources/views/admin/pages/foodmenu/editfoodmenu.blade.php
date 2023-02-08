@@ -1,12 +1,13 @@
-<x-home.index>
+<x-home.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
 		<div class="row">
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">Food-Menu Form</h4>
-						<p class="card-description">Add food menu info</p>
-						<form action="{{ url('/uploadfood') }}" method="post" enctype="multipart/form-data">
+						<p class="card-description">Edit food menu info</p>
+						<form action="{{ route('foodmenu.update', $data->id ) }}" method="post" enctype="multipart/form-data">
+							@method('PUT')
 							@csrf
 							<div class="form-group">
 								<label for="productname">Name</label>
@@ -15,6 +16,7 @@
 									class="form-control"
 									id="productname"
 									name="productname"
+									value="{{ $data->name }}"
 									placeholder="Input product name"
 									required
 								/>
@@ -27,6 +29,7 @@
 									class="form-control"
 									id="productprice"
 									name="productprice"
+									value="{{ $data->price }}"
 									placeholder="Input product price up to 2 decimal places"
 									pattern="[0-9]+([\.,][0-9]+)?" 
 									step="0.01"
@@ -41,14 +44,14 @@
 										type="file"
 										class="form-control file-upload-info"
 										placeholder="Upload product image"
-										id="productimage"
+										id="productimageupdate"
 										name="productimage"
-										required
+										value="{{ $data->img }}"
 									/>
 								</div>
 							</div>
 							<div class="form-group">
-								<img id="tempproductimage" src="#" alt="temp-uploded-img" class="h-auto shadow-sm w-1/2" style="display: none" />
+								<img id="tempproductimageedit" src="{{ $data->img }}" alt="{{ $data->name }}" class="h-auto shadow-sm w-1/2" />
 							</div>
 
 							<div class="form-group">
@@ -60,11 +63,11 @@
 									rows="4"
 									required
 									placeholder="Input product description"
-								></textarea>
+								>{{ $data->desc }}</textarea>
 							</div>
 
-							<button type="submit" class="btn btn-primary mr-2">Add</button>
-							<a href="{{ url("foodmenu") }}" class="btn btn-light">Cancel</a>
+							<button onclick="alert('Only admin can edit food menu')" type="submit" class="btn btn-primary mr-2">Edit</button>
+							<a href="{{ route("foodmenu.list") }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
@@ -72,25 +75,12 @@
 		</div>
 	</div>
 	<script>
-		var imgInput = document.getElementById("productimage");		
-		imgInput.addEventListener('change', (event) => {
-			if (event.target.files[0]) {
-        var reader = new FileReader();
-        
-				var imgTemp = document.getElementById("tempproductimage");	  
-        reader.onload = function (e) {
-        	imgTemp.setAttribute("src", e.target.result);
-        }
-        
-        reader.readAsDataURL(event.target.files[0]);
-
-        if (imgTemp.style.display === "inline") {
-			    imgTemp.style.display = "block";
-			  } else {
-			    imgTemp.style.display = "inline";
-			  }
-	    }
-		});
+		productimageupdate.onchange = evt => {
+		  const [file] = productimageupdate.files
+		  if (file) {
+		    tempproductimageedit.src = URL.createObjectURL(file)
+		  }
+		}
 		
 	</script>
 </x-home.index>

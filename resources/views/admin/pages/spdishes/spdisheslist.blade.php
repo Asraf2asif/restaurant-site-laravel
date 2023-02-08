@@ -1,6 +1,6 @@
-<x-home.index>
+<x-home.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
-		<a href="{{ url('/addfoodmenu') }}" class="btn btn-primary mx-2">Add New Food</a>
+		<a href="{{ route('spdish.create') }}" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
 
 	<div class="content-wrapper">
@@ -24,31 +24,43 @@
 							<tr>
 								<td class="w-32">
 									<img src="{{$data->img}}" alt="{{$data->name}}" class="!w-full !h-auto !rounded-none">
-								</td>
-								<td>{{$data->name}}</td>
+								</td>							
+								<td>
+									<p class="font-bold">
+		                <span class="text-amber-400">{{ $data['namepart1'] }}</span> <span class="leading-normal">{{ $data['namepart2'] }}</span>
+		              </p>
+		            </td>
 								<td>{{$data->price}}</td>								
 								<td class="max-w-[190px] min-w-[190px] !leading-normal !whitespace-normal break-words">{{$data->desc}}</td>
 								<td>{{$data->created_at}}</td>
-								@if($usertype == "1")
 								<td>
 									<a
-										href="{{ url('/updatefoodmenu', $data->id) }}"
+										href="{{ route('spdish.edit', $data->id) }}"
 										class="badge badge-primary cursor-pointer"
-										>Update</a
+										>Edit</a
 									>
 								</td>
 								<td>
-									<a
-										onclick="return confirmDeleteFood({{ $data->id }} , '{{ $data->name }}');"
-										href="{{ url('/delfoodmenu', $data->id) }}"
+									@if ($isAdmin === true)
+									<form method="POST" action="{{ route('spdish.destroy', $data->id) }}">
+						        @method('DELETE')
+										@csrf
+
+						        <div class="form-group">
+						        	<button 
+						        		type="submit" 
+						        		class="badge badge-danger cursor-pointer" 
+						        		onclick="return confirmDeleteSpDish({{ $data->id }} , '{{ $data->name }}');"
+						        		>Delete</button>
+						        </div>
+								  </form>
+									@else
+									<button
+										onclick="alert('Only admin can special dish info')"
 										class="badge badge-danger cursor-pointer"
-										>Delete</a
-									>
+										>Delete</button>
+									@endif
 								</td>
-								@else
-								<td><p class="badge badge-dark">Not allowded</p></td>
-								<td><p class="badge badge-dark">Not allowded</p></td>
-								@endif
 							</tr>
 							@endforeach
 						</tbody>
@@ -58,8 +70,8 @@
 		</div>
 	</div>
 	<script>
-  function confirmDeleteFood(id, name) {
-      if(!confirm("Are You Sure to delete this food item, Named: " + name + ", Id: " + id + "." ))
+  function confirmDeleteSpDish(id, name) {
+      if(!confirm("Are You Sure to delete this special dish item, Named: " + name + ", Id: " + id + "." ))
       event.preventDefault();
   }
  </script>

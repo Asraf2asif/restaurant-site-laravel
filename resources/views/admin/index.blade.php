@@ -1,1 +1,1 @@
-<x-home.index/>
+<x-home.index :user="$user" :isAdmin="$isAdmin"/>

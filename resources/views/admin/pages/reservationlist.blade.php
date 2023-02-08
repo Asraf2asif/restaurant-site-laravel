@@ -1,8 +1,4 @@
-<x-home.index>
-	<div class="content-wrapper">
-		<a href="{{ url('/addfoodmenu') }}" class="btn btn-primary mx-2">Add New Food</a>
-	</div>
-
+<x-home.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
 		<div class="col-lg-12 grid-margin stretch-card">
 			<div class="card">
@@ -20,16 +16,27 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($data as $data)
+							@if ($isAdmin === false)
 							<tr>
-								<td>{{$data->name}}</td>
-								<td>{{$data->phone_number}}</td>								
-								<td>{{$data->date}}</td>								
-								<td>{{$data->time}}</td>								
-								<td>{{$data->person}}</td>
-								<td>{{$data->created_at}}</td>
+								<td>Only Admin</td>
+								<td>can view</td>								
+								<td>or edit</td>								
+								<td>reservations</td>								
+								<td>info</td>
+								<td>.</td>
 							</tr>
-							@endforeach
+							@else
+								@foreach($data as $data)
+								<tr>
+									<td>{{$data->name}}</td>
+									<td>{{$data->phone_number}}</td>								
+									<td>{{$data->date}}</td>								
+									<td>{{$data->time}}</td>								
+									<td>{{$data->person}}</td>
+									<td>{{$data->created_at}}</td>
+								</tr>
+								@endforeach
+							@endif
 						</tbody>
 					</table>
 				</div>

@@ -4,7 +4,7 @@
 	  <div class="mx-4 lg:flex lg:items-center">
 	    <div class="flex items-center justify-between">
 	      <div class="lg:shrink-0">
-	        <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
+	        <a href="{{ route('index') }}"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
 	      </div>
 	      <div class="nav-ham p-4 lg:hidden cursor-pointer transition ease-in-out duration-75 open">
 	      	@foreach ([1, 2, 3] as $data)
@@ -94,6 +94,10 @@
 										{{ __('Log Out') }}
 									</x-jet-dropdown-link>
 								</form>
+								<div class="border-t border-gray-100"></div>
+								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}">
+									Dashboard
+								</x-jet-dropdown-link>
 							</x-slot>
 						</x-jet-dropdown>
 					</div>
@@ -122,6 +126,10 @@
 									Register
 								</x-jet-dropdown-link>
 								@endif
+								<div class="border-t border-gray-100"></div>
+								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}">
+									Dashboard
+								</x-jet-dropdown-link>
 							</x-slot>
 						</x-jet-dropdown>
 					</div>					 
