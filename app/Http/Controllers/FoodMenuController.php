@@ -69,9 +69,9 @@ class FoodMenuController extends Controller
 
             $data->save();
 
-            return redirect()->route('foodmenu.index')->with('msg', 'New Food menu created');
+            return redirect()->route('foodmenu.index')->with('msg', 'New Food menu entry created');
         }        
-        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu entry" );
     }
 
     /**
@@ -80,7 +80,7 @@ class FoodMenuController extends Controller
      * @param  $foodmenu->id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($foodmenu)
     {
         //
     }
@@ -91,9 +91,9 @@ class FoodMenuController extends Controller
      * @param  $foodmenu->id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($foodmenu)
     {
-        $data = food::findOrFail($id);
+        $data = food::findOrFail($foodmenu);
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.foodmenu.editfoodmenu", compact("data", "user", "isAdmin"));
@@ -106,11 +106,11 @@ class FoodMenuController extends Controller
      * @param  $foodmenu->id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($foodmenu, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = food::findOrFail($id);
+            $data = food::findOrFail($foodmenu);
 
             $image = $request->productimage;
             if($image){
@@ -125,9 +125,9 @@ class FoodMenuController extends Controller
 
             $data->save();
 
-            return redirect()->route('foodmenu.index')->with('msg', 'Food menu edited');
+            return redirect()->route('foodmenu.index')->with('msg', 'Food menu entry edited');
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't edit food menu entry" );
     }
 
     /**
@@ -136,14 +136,14 @@ class FoodMenuController extends Controller
      * @param  $foodmenu->id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($foodmenu)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = food::findOrFail($id);
+            $data = food::findOrFail($foodmenu);
             $data -> delete();
-            return redirect() -> back()->with('msg', 'Food menu deleted');
+            return redirect() -> back()->with('msg', 'Food menu entry deleted successfully');
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't delete food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't delete food menu entry" );
     }
 }

@@ -70,9 +70,9 @@ class TestimonialController extends Controller
 
             $data->save();
 
-            return redirect()->route('review.index')->with('msg', 'New testimonial created');
+            return redirect()->route('review.index')->with('msg', 'New testimonial entry created');
         }        
-        return redirect()->route('review.index')->with('msg', "Can't create testimonial" );
+        return redirect()->route('review.index')->with('msg', "Can't create testimonial entry" );
     }
 
     /**
@@ -81,7 +81,7 @@ class TestimonialController extends Controller
      * @param  $testimonial->id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($testimonial)
     {
         //
     }
@@ -92,9 +92,9 @@ class TestimonialController extends Controller
      * @param  $testimonial->id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($testimonial)
     {
-        $data = testimonial::findOrFail($id);
+        $data = testimonial::findOrFail($testimonial);
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.review.editreview", compact("data", "user", "isAdmin"));
@@ -107,11 +107,11 @@ class TestimonialController extends Controller
      * @param  $testimonial->id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($testimonial, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = testimonial::findOrFail($id);
+            $data = testimonial::findOrFail($testimonial);
 
             $image = $request->reviewimage;
             if($image){
@@ -128,9 +128,9 @@ class TestimonialController extends Controller
 
             $data->save();
 
-            return redirect()->route('review.index')->with('msg', 'testimonial edited');
+            return redirect()->route('testimonial.index')->with('msg', 'Testimonial entry edited');
         }
-        return redirect()->route('review.index')->with('msg', "Can't create testimonial" );
+        return redirect()->route('testimonial.index')->with('msg', "Can't edit testimonial" );
     }
 
     /**
@@ -139,14 +139,14 @@ class TestimonialController extends Controller
      * @param  $testimonial->id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($testimonial)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = testimonial::findOrFail($id);
+            $data = testimonial::findOrFail($testimonial);
             $data -> delete();
-            return redirect() -> back()->with('msg', 'testimonial deleted');
+            return redirect() -> back()->with('msg', 'Testimonial entry deleted successfully');
         }
-        return redirect()->route('review.index')->with('msg', "Can't delete testimonial menu" );
+        return redirect()->route('testimonial.index')->with('msg', "Can't delete testimonial entry" );
     }
 }

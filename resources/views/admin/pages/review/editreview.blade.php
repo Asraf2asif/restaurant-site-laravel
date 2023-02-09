@@ -6,7 +6,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Testimonial Form</h4>
 						<p class="card-description">Edit testimonial info</p>
-						<form action="{{ route('review.update', $data->id ) }}" method="post" enctype="multipart/form-data">
+						<form action="{{ route('testimonial.update', $data->id ) }}" method="post" enctype="multipart/form-data">
 							@method('PUT')
 							@csrf
 							<div class="form-group">
@@ -84,7 +84,7 @@
 							@else
 							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
 							@endif
-							<a href="{{ route("review.index") }}" class="btn btn-light">Cancel</a>
+							<a href="{{ route("testimonial.index") }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

@@ -38,14 +38,14 @@ class UserController extends Controller
      * @param  $user->id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = user::findOrFail($id);
+            $data = user::findOrFail($user);
             $data -> delete();
             return redirect() -> back();
         }
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('msg', 'User deleted successfully');
     }
 }

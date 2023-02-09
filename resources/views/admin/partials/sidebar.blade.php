@@ -54,13 +54,13 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('spdish.index')}}">
+      <a class="nav-link" href="{{ route('specialdishes.index')}}">
         <span class="menu-title">Special dishes</span>
         <i class="fa-solid fa-bell-concierge menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('review.index')}}">
+      <a class="nav-link" href="{{ route('testimonial.index')}}">
         <span class="menu-title">Testimonials</span>
         <i class="fa-solid fa-star-half-stroke menu-icon"></i>
       </a>

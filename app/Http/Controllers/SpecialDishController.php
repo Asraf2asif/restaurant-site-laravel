@@ -69,9 +69,9 @@ class SpecialDishController extends Controller
             $data->desc = $request->spdishesdesc;
 
             $data->save();
-            return redirect()->route('spdish.index')->with('msg', 'New Special-Dish created');
+            return redirect()->route('spdish.index')->with('msg', 'New Special-Dish entry created');
         }        
-        return redirect()->route('spdish.index')->with('msg', 'Can\'t create Special-Dish');
+        return redirect()->route('spdish.index')->with('msg', 'Can\'t create Special-Dish entry');
     }
 
     /**
@@ -80,7 +80,7 @@ class SpecialDishController extends Controller
      * @param  $specialdishes->id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($specialdishes)
     {
         //
     }
@@ -91,9 +91,9 @@ class SpecialDishController extends Controller
      * @param  $specialdishes->id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($specialdishes)
     {
-        $data = specialdishes::findOrFail($id);
+        $data = specialdishes::findOrFail($specialdishes);
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.spdishes.editspdishes", compact("data", "user", "isAdmin"));
@@ -106,11 +106,11 @@ class SpecialDishController extends Controller
      * @param  $specialdishes->id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($specialdishes, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = specialdishes::findOrFail($id);
+            $data = specialdishes::findOrFail($specialdishes);
 
             $image = $request->spdishesimageedit;
             if($image){
@@ -125,9 +125,9 @@ class SpecialDishController extends Controller
             $data->desc = $request->spdishesdescedit;
 
             $data->save();
-            return redirect()->route('spdish.index')->with('msg', 'Special-Dish info edited');
+            return redirect()->route('specialdishes.index')->with('msg', 'Special-Dish entry edited');
         }        
-        return redirect()->route('spdish.index')->with('msg', 'Can\'t edit Special-Dish info');
+        return redirect()->route('specialdishes.index')->with('msg', 'Can\'t edit Special-Dish entry');
     }
 
     /**
@@ -136,14 +136,14 @@ class SpecialDishController extends Controller
      * @param  $specialdishes->id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($specialdishes)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
-            $data = specialdishes::findOrFail($id);
+            $data = specialdishes::findOrFail($specialdishes);
             $data -> delete();
-            return redirect() -> back()->with('msg', 'Special-Dish info deleted successfully');
+            return redirect() -> back()->with('msg', 'Special-Dish entry deleted successfully');
         }
-        return redirect()->route('spdish.index')->with('msg', 'Can\'t delete Special-Dish info');
+        return redirect()->route('specialdishes.index')->with('msg', 'Can\'t delete Special-Dish entry');
     }
 }

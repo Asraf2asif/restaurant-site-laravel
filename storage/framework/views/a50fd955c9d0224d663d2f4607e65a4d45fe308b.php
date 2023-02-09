@@ -11,7 +11,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Testimonial Form</h4>
 						<p class="card-description">Add testimonial info</p>
-						<form action="<?php echo e(route('review.store')); ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php echo e(route('testimonial.store')); ?>" method="post" enctype="multipart/form-data">
 							<?php echo csrf_field(); ?>
 							<div class="form-group">
 								<label for="reviewname">Name</label>
@@ -85,7 +85,7 @@
 							<?php else: ?>
 							<button onclick="alert('Only admin can add food menu')" type="button" class="btn btn-primary mr-2">Add</button>
 							<?php endif; ?>
-							<a href="<?php echo e(route("review.index")); ?>" class="btn btn-light">Cancel</a>
+							<a href="<?php echo e(route("testimonial.index")); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

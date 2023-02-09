@@ -5,7 +5,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 	<div class="content-wrapper">
-		<a href="<?php echo e(route('review.create')); ?>" class="btn btn-primary mx-2">Add Testimonial</a>
+		<a href="<?php echo e(route('testimonial.create')); ?>" class="btn btn-primary mx-2">Add Testimonial</a>
 	</div>
 
 	<div class="content-wrapper">
@@ -42,14 +42,14 @@
 								<td><?php echo e($data->created_at); ?></td>
 								<td>
 									<a
-										href="<?php echo e(route('review.edit', $data->id)); ?>"
+										href="<?php echo e(route('testimonial.edit', $data->id)); ?>"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									<?php if($isAdmin === true): ?>
-									<form method="POST" action="<?php echo e(route('review.destroy', $data->id)); ?>">
+									<form method="POST" action="<?php echo e(route('testimonial.destroy', $data->id)); ?>">
 						        <?php echo method_field('DELETE'); ?>
 										<?php echo csrf_field(); ?>
 					        	<button 

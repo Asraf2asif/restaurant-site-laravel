@@ -1,6 +1,6 @@
 <x-home.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
-		<a href="{{ route('review.create') }}" class="btn btn-primary mx-2">Add Testimonial</a>
+		<a href="{{ route('testimonial.create') }}" class="btn btn-primary mx-2">Add Testimonial</a>
 	</div>
 
 	<div class="content-wrapper">
@@ -37,14 +37,14 @@
 								<td>{{$data->created_at}}</td>
 								<td>
 									<a
-										href="{{ route('review.edit', $data->id) }}"
+										href="{{ route('testimonial.edit', $data->id) }}"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									@if ($isAdmin === true)
-									<form method="POST" action="{{ route('review.destroy', $data->id) }}">
+									<form method="POST" action="{{ route('testimonial.destroy', $data->id) }}">
 						        @method('DELETE')
 										@csrf
 					        	<button 

@@ -1,6 +1,6 @@
 <x-home.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
-		<a href="{{ route('spdish.create') }}" class="btn btn-primary mx-2">Add Special Dish</a>
+		<a href="{{ route('specialdishes.create') }}" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
 
 	<div class="content-wrapper">
@@ -40,14 +40,14 @@
 								<td>{{$data->created_at}}</td>
 								<td>
 									<a
-										href="{{ route('spdish.edit', $data->id) }}"
+										href="{{ route('specialdishes.edit', $data->id) }}"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									@if ($isAdmin === true)
-									<form method="POST" action="{{ route('spdish.destroy', $data->id) }}">
+									<form method="POST" action="{{ route('specialdishes.destroy', $data->id) }}">
 						        @method('DELETE')
 										@csrf
 					        	<button 

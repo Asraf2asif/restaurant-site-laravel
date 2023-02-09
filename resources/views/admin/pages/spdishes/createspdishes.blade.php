@@ -6,7 +6,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Special Dishes Add Form</h4>
 						<p class="card-description">Add special dishes info</p>
-						<form action="{{ route('spdish.store') }}" method="post" enctype="multipart/form-data">
+						<form action="{{ route('specialdishes.store') }}" method="post" enctype="multipart/form-data">
 							@csrf
 							<div class="form-group">
 								<label for="spdishesname1">Name first part</label>
@@ -80,7 +80,7 @@
 							@else
 							<button onclick="alert('Only admin can add spdish item')" type="button" class="btn btn-primary mr-2">Add</button>
 							@endif
-							<a href="{{ route('spdish.index') }}" class="btn btn-light">Cancel</a>
+							<a href="{{ route('specialdishes.index') }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

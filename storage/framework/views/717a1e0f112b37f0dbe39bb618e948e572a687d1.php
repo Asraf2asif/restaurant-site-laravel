@@ -5,7 +5,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 	<div class="content-wrapper">
-		<a href="<?php echo e(route('spdish.create')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
+		<a href="<?php echo e(route('specialdishes.create')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
 
 	<div class="content-wrapper">
@@ -45,14 +45,14 @@
 								<td><?php echo e($data->created_at); ?></td>
 								<td>
 									<a
-										href="<?php echo e(route('spdish.edit', $data->id)); ?>"
+										href="<?php echo e(route('specialdishes.edit', $data->id)); ?>"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									<?php if($isAdmin === true): ?>
-									<form method="POST" action="<?php echo e(route('spdish.destroy', $data->id)); ?>">
+									<form method="POST" action="<?php echo e(route('specialdishes.destroy', $data->id)); ?>">
 						        <?php echo method_field('DELETE'); ?>
 										<?php echo csrf_field(); ?>
 					        	<button 

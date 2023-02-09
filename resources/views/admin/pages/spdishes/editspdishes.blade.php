@@ -6,7 +6,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Special Dishes Form</h4>
 						<p class="card-description">Edit special dishes info</p>
-						<form action="{{ route('spdish.update', $data->id ) }}" method="post" enctype="multipart/form-data">
+						<form action="{{ route('specialdishes.update', $data->id ) }}" method="post" enctype="multipart/form-data">
 							@method('PUT')
 							@csrf
 							<div class="form-group">
@@ -84,7 +84,7 @@
 							@else
 							<button onclick="alert('Only admin can edit spdish item')" type="button" class="btn btn-primary mr-2">Edit</button>
 							@endif
-							<a href="{{ route('spdish.index') }}" class="btn btn-light">Cancel</a>
+							<a href="{{ route('specialdishes.index') }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
