@@ -9,7 +9,7 @@
 
 <!-- plugins:css -->
 <link rel="stylesheet" href="admin/vendors/simple-line-icons/css/simple-line-icons.css">
-<link rel="stylesheet" href="admin/vendors/flag-icon-css/css/flag-icon.min.css">
+{{-- <link rel="stylesheet" href="admin/vendors/flag-icon-css/css/flag-icon.min.css"> --}}
 <link rel="stylesheet" href="admin/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
@@ -22,4 +22,5 @@
 <link rel="stylesheet" href="admin/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin/images/favicon.png" />
+<script src="https://kit.fontawesome.com/7d5e6558a7.js" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>

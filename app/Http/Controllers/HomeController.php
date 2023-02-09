@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
-use App\Models\Reservation;
 use App\Models\Specialdishes;
+use App\Models\Testimonial;
 
 
 class HomeController extends Controller
 {
+    /**
+     * Variable containing navigation data.
+     *
+     */
     private $navdata = [
         ["text" => "home", "href" => "#home"],
         ["text" => "about", "href" => "#about"],
@@ -20,25 +24,17 @@ class HomeController extends Controller
         ["text" => "contact", "href" => "#contact"],
     ];
 
-    public function homeCtr@index()
+    /**
+     * Display a home page of foodfun with all info.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $navdata = $this->navdata;
         $fooddata = food::all();
         $dishesdata = specialdishes::all();
-        return view("home.index", compact('navdata', 'fooddata', 'dishesdata'));
-    }
-
-    public function ReservationCtr@create(Request $request)
-    {
-        $data = new reservation;
-        $data->name = $request->name;
-        $data->phone_number = $request->phone;
-        $data->date = $request->date;
-        $data->time = $request->time;
-        $data->person = $request->person;
-
-        $data->save();
-        
-        return redirect()->back();
+        $testimonialdata = testimonial::all();
+        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata'));
     }
 }

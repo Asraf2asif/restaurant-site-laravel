@@ -5,32 +5,53 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Food;
+use App\Models\Specialdishes;
 
 
-class AdminController extends Controller
+class SpecialDishController extends Controller
 {
+    /**
+     * Check if current user is admin.
+     *
+     * @return Boolean true/false
+     */
     public function GetIsAdmin()
     {
         return Auth::id() && Auth::user()->usertype = "1" ? true : false;
     }
 
-    public function SpDishCtr@list()
+    /**
+     * Display a listing of the specialdishes entry.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $data = specialdishes::all();
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
-        return view("admin.pages.spdishes.spdisheslist", compact("data", "isAdmin", "user"));
+        return view("admin.pages.spdishes.spdishes", compact("data", "isAdmin", "user"));
     }
 
-    public function SpDishCtr@create()
+    /**
+     * Show the form for creating a new specialdishes entry.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.spdishes.createspdishes", compact("user", "isAdmin"));
     }
 
-    public function SpDishCtr@store(Request $request)
+    /**
+     * Store a newly created specialdishes entry in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
@@ -48,11 +69,29 @@ class AdminController extends Controller
             $data->desc = $request->spdishesdesc;
 
             $data->save();
+            return redirect()->route('spdish.index')->with('msg', 'New Special-Dish created');
         }        
-        return redirect()->route('spdish.list');
+        return redirect()->route('spdish.index')->with('msg', 'Can\'t create Special-Dish');
     }
 
-    public function SpDishCtr@edit($id)
+    /**
+     * Display the specified specialdishes entry.
+     *
+     * @param  $specialdishes->id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+     * Show the form for editing the specified specialdishes entry.
+     *
+     * @param  $specialdishes->id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         $data = specialdishes::findOrFail($id);
         $user = Auth::id() ? Auth::user() : null;
@@ -60,7 +99,14 @@ class AdminController extends Controller
         return view("admin.pages.spdishes.editspdishes", compact("data", "user", "isAdmin"));
     }
 
-    public function SpDishCtr@update($id, Request $request)
+    /**
+     * Update the specified specialdishes entry in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  $specialdishes->id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
@@ -79,18 +125,25 @@ class AdminController extends Controller
             $data->desc = $request->spdishesdescedit;
 
             $data->save();
+            return redirect()->route('spdish.index')->with('msg', 'Special-Dish info edited');
         }        
-        return redirect()->route('spdish.list');
+        return redirect()->route('spdish.index')->with('msg', 'Can\'t edit Special-Dish info');
     }
 
-    public function SpDishCtr@destroy($id)
+    /**
+     * Remove the specified specialdishes entry from storage.
+     *
+     * @param  $specialdishes->id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
             $data = specialdishes::findOrFail($id);
             $data -> delete();
-            return redirect() -> back();
+            return redirect() -> back()->with('msg', 'Special-Dish info deleted successfully');
         }
-        return redirect()->route('spdish.list');
+        return redirect()->route('spdish.index')->with('msg', 'Can\'t delete Special-Dish info');
     }
 }

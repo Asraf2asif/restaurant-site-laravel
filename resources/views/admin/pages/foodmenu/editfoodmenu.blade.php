@@ -66,8 +66,12 @@
 								>{{ $data->desc }}</textarea>
 							</div>
 
-							<button onclick="alert('Only admin can edit food menu')" type="submit" class="btn btn-primary mr-2">Edit</button>
-							<a href="{{ route("foodmenu.list") }}" class="btn btn-light">Cancel</a>
+							@if ($isAdmin === true)
+							<button type="submit" class="btn btn-primary mr-2">Edit</button>
+							@else
+							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
+							@endif
+							<a href="{{ route("foodmenu.index") }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

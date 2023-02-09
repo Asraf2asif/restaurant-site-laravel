@@ -63,8 +63,12 @@
 								></textarea>
 							</div>
 
-							<button onclick="alert('Only admin can add food menu')" type="submit" class="btn btn-primary mr-2">Add</button>
-							<a href="{{ route("foodmenu.list") }}" class="btn btn-light">Cancel</a>
+							@if ($isAdmin === true)
+							<button type="submit" class="btn btn-primary mr-2">Add</button>
+							@else
+							<button onclick="alert('Only admin can add food menu')" type="button" class="btn btn-primary mr-2">Add</button>
+							@endif
+							<a href="{{ route("foodmenu.index") }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

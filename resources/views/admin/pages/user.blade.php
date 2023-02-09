@@ -3,10 +3,9 @@
 		<div class="col-lg-8 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Admin data</h4>
-					
+					<h4 class="card-title">User Data-Table</h4>					
 					<p class="card-description">
-						Add class <code>.table-hover</code> 
+						User information table 
 					</p>
 					<table class="table table-hover">
 						<thead>

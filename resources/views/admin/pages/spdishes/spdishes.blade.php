@@ -7,10 +7,15 @@
 		<div class="col-lg-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Admin data</h4>					
+					<h4 class="card-title">Special-Dish Data-Table</h4>					
 					<p class="card-description">
-						Add class <code>.table-hover</code> 
+						Special-Dish information table  
 					</p>
+
+					@if(session()->has('msg'))
+					<p class="alert alert-info">{{ session()->get('msg') }}</p>
+					@endif
+					
 					<table class="table table-hover overflow-auto block">
 						<thead>
 							<tr class="bg-slate-800">
@@ -45,14 +50,11 @@
 									<form method="POST" action="{{ route('spdish.destroy', $data->id) }}">
 						        @method('DELETE')
 										@csrf
-
-						        <div class="form-group">
-						        	<button 
-						        		type="submit" 
-						        		class="badge badge-danger cursor-pointer" 
-						        		onclick="return confirmDeleteSpDish({{ $data->id }} , '{{ $data->name }}');"
-						        		>Delete</button>
-						        </div>
+					        	<button 
+					        		type="submit" 
+					        		class="badge badge-danger cursor-pointer" 
+					        		onclick="return confirmDeleteSpDish({{ $data->id }} , '{{ $data->name }}');"
+					        		>Delete</button>
 								  </form>
 									@else
 									<button

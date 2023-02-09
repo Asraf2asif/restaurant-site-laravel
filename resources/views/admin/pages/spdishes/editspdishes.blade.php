@@ -79,8 +79,12 @@
 								>{{ $data->desc }}</textarea>
 							</div>
 
-							<button onclick="alert('Only admin can edit spdish item')" type="submit" class="btn btn-primary mr-2">Edit</button>
-							<a href="{{ route('spdish.list') }}" class="btn btn-light">Cancel</a>
+							@if ($isAdmin === true)
+							<button type="submit" class="btn btn-primary mr-2">Edit</button>
+							@else
+							<button onclick="alert('Only admin can edit spdish item')" type="button" class="btn btn-primary mr-2">Edit</button>
+							@endif
+							<a href="{{ route('spdish.index') }}" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

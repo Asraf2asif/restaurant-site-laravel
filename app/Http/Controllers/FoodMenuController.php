@@ -8,29 +8,50 @@ use App\Models\User;
 use App\Models\Food;
 
 
-class AdminController extends Controller
+class FoodMenuController extends Controller
 {
-    public function GetIsAdmin()
+    /**
+     * Check if current user is admin.
+     *
+     * @return Boolean true/false
+     */
+    private function GetIsAdmin()
     {
         return Auth::id() && Auth::user()->usertype = "1" ? true : false;
     }
 
-    public function FoodMenuCtr@list()
+    /**
+     * Display a listing of the foodmenu entry.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $data = food::all();
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
-        return view("admin.pages.foodmenu.foodmenulist", compact("data", "isAdmin", "user"));
+        return view("admin.pages.foodmenu.foodmenu", compact("data", "isAdmin", "user"));
     }
 
-    public function FoodMenuCtr@create()
+    /**
+     * Show the form for creating a new foodmenu entry.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.foodmenu.createfoodmenu", compact("user", "isAdmin"));
     }
 
-    public function FoodMenuCtr@store(Request $request)
+    /**
+     * Store a newly created foodmenu entry in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
@@ -48,12 +69,29 @@ class AdminController extends Controller
 
             $data->save();
 
-            return redirect()->route('foodmenu.list')->with('msg', 'New Food menu created');
+            return redirect()->route('foodmenu.index')->with('msg', 'New Food menu created');
         }        
-        return redirect()->route('foodmenu.list')->with('msg', "Can't create food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu" );
+    }
+
+    /**
+     * Display the specified foodmenu entry.
+     *
+     * @param  $foodmenu->id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
     
-    public function FoodMenuCtr@edit($id)
+    /**
+     * Show the form for editing the specified foodmenu entry.
+     *
+     * @param  $foodmenu->id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         $data = food::findOrFail($id);
         $user = Auth::id() ? Auth::user() : null;
@@ -61,7 +99,14 @@ class AdminController extends Controller
         return view("admin.pages.foodmenu.editfoodmenu", compact("data", "user", "isAdmin"));
     }
 
-    public function FoodMenuCtr@update($id, Request $request)
+    /**
+     * Update the specified foodmenu entry in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  $foodmenu->id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
@@ -80,12 +125,18 @@ class AdminController extends Controller
 
             $data->save();
 
-            return redirect()->route('foodmenu.list')->with('msg', 'New Food menu edited');
+            return redirect()->route('foodmenu.index')->with('msg', 'Food menu edited');
         }
-        return redirect()->route('foodmenu.list')->with('msg', "Can't create food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu" );
     }
 
-    public function FoodMenuCtr@destroy($id)
+    /**
+     * Remove the specified foodmenu entry from storage.
+     *
+     * @param  $foodmenu->id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
         $isAdmin = $this->GetIsAdmin();
         if($isAdmin === true){
@@ -93,6 +144,6 @@ class AdminController extends Controller
             $data -> delete();
             return redirect() -> back()->with('msg', 'Food menu deleted');
         }
-        return redirect()->route('foodmenu.list')->with('msg', "Can't delete food menu" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't delete food menu" );
     }
 }
