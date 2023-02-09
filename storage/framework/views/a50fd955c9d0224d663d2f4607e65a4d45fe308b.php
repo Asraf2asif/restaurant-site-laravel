@@ -9,42 +9,42 @@
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Special Dishes Add Form</h4>
-						<p class="card-description">Add special dishes info</p>
-						<form action="<?php echo e(route('spdish.store')); ?>" method="post" enctype="multipart/form-data">
+						<h4 class="card-title">Testimonial Form</h4>
+						<p class="card-description">Add testimonial info</p>
+						<form action="<?php echo e(route('review.store')); ?>" method="post" enctype="multipart/form-data">
 							<?php echo csrf_field(); ?>
 							<div class="form-group">
-								<label for="spdishesname1">Name first part</label>
+								<label for="reviewname">Name</label>
 								<input
 									type="text"
 									class="form-control"
-									id="spdishesname1"
-									name="spdishesname1"
-									placeholder="Input dishes name first part"
+									id="reviewname"
+									name="reviewname"
+									placeholder="Input Client Name"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesname2">Name second part</label>
+								<label for="reviewbio">Bio</label>
 								<input
 									type="text"
 									class="form-control"
-									id="spdishesname2"
-									name="spdishesname2"
-									placeholder="Input dish name second part"
+									id="reviewbio"
+									name="reviewbio"
+									placeholder="Input Client Bio"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesprice">Price</label>
+								<label for="reviewrating">Rating</label>
 								<input
 									type="number"
 									class="form-control"
-									id="spdishesprice"
-									name="spdishesprice"
-									placeholder="Input dish price up to 2 decimal places"
+									id="reviewrating"
+									name="reviewrating"
+									placeholder="Input review Rating up to 2 decimal places"
 									pattern="[0-9]+([\.,][0-9]+)?" 
 									step="0.01"
 									repuired
@@ -52,40 +52,40 @@
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesimage">Image upload</label>
+								<label>Image upload</label>
 								<div class="input-group col-xs-12">
 									<input
 										type="file"
 										class="form-control file-upload-info"
-										placeholder="Upload dish image"
-										id="spdishesimage"
-										name="spdishesimage"
+										placeholder="Upload review image"
+										id="reviewimage"
+										name="reviewimage"
 										required
 									/>
 								</div>
 							</div>
 							<div class="form-group">
-								<img id="tempspdishesimage" src="#" alt="temp-uploded-img" class="h-auto shadow-sm w-1/2" style="display: none" />
+								<img id="tempreviewimage" src="#" alt="temp-uploded-img" class="h-auto shadow-sm w-1/2" style="display: none" />
 							</div>
 
 							<div class="form-group">
-								<label for="spdishesdesc">Description</label>
+								<label for="reviewtext">Review</label>
 								<textarea
 									class="form-control"
-									id="spdishesdesc"
-									name="spdishesdesc"
+									id="reviewtext"
+									name="reviewtext"
 									rows="4"
 									required
-									placeholder="Input dish description"
+									placeholder="Input Client Review"
 								></textarea>
 							</div>
 
 							<?php if($isAdmin === true): ?>
 							<button type="submit" class="btn btn-primary mr-2">Add</button>
 							<?php else: ?>
-							<button onclick="alert('Only admin can add spdish item')" type="button" class="btn btn-primary mr-2">Add</button>
+							<button onclick="alert('Only admin can add food menu')" type="button" class="btn btn-primary mr-2">Add</button>
 							<?php endif; ?>
-							<a href="<?php echo e(route('spdish.index')); ?>" class="btn btn-light">Cancel</a>
+							<a href="<?php echo e(route("review.index")); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
@@ -93,12 +93,12 @@
 		</div>
 	</div>
 	<script>
-		var imgInput = document.getElementById("spdishesimage");		
+		var imgInput = document.getElementById("reviewimage");		
 		imgInput.addEventListener('change', (event) => {
 			if (event.target.files[0]) {
         var reader = new FileReader();
         
-				var imgTemp = document.getElementById("tempspdishesimage");	  
+				var imgTemp = document.getElementById("tempreviewimage");	  
         reader.onload = function (e) {
         	imgTemp.setAttribute("src", e.target.result);
         }
@@ -120,4 +120,4 @@
 <?php $component = $__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737; ?>
 <?php unset($__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737); ?>
 <?php endif; ?>
-<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/spdishes/createspdishes.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/review/createreview.blade.php ENDPATH**/ ?>

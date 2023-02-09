@@ -85,4 +85,4 @@
 <?php $component = $__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737; ?>
 <?php unset($__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737); ?>
 <?php endif; ?>
-<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/foodmenu/foodmenulist.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/foodmenu/foodmenu.blade.php ENDPATH**/ ?>

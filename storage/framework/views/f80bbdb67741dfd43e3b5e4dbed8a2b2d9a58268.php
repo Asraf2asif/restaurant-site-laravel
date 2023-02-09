@@ -8,10 +8,9 @@
 		<div class="col-lg-8 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Admin data</h4>
-					
+					<h4 class="card-title">User Data-Table</h4>					
 					<p class="card-description">
-						Add class <code>.table-hover</code> 
+						User information table 
 					</p>
 					<table class="table table-hover">
 						<thead>
@@ -37,12 +36,18 @@
 									<td><?php echo e($data->created_at); ?></td>
 									<?php if($data->usertype == "0"): ?>
 									<td>
-										<a
-											onclick="return confirmDeleteUser(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
-											href="<?php echo e(url('/admin/deleteuser', $data->id)); ?>"
-											class="badge badge-danger cursor-pointer"
-											>Delete</a
-										>
+										<form method="POST" action="<?php echo e(route('user.destroy', $data->id)); ?>">
+								        <?php echo method_field('DELETE'); ?>
+												<?php echo csrf_field(); ?>
+
+								        <div class="form-group">
+								        	<button 
+								        		type="submit" 
+								        		class="badge badge-danger cursor-pointer" 
+								        		onclick="return confirmDeleteUser(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
+								        		>Delete</button>
+								        </div>
+								    </form>
 									</td>
 									<?php else: ?>
 									<td><p class="badge badge-dark">Not allowded</p></td>

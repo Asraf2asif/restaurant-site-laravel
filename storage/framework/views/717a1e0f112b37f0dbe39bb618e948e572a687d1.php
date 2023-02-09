@@ -5,16 +5,16 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 	<div class="content-wrapper">
-		<a href="<?php echo e(route('foodmenu.create')); ?>" class="btn btn-primary mx-2">Add New Food</a>
+		<a href="<?php echo e(route('spdish.create')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
 
 	<div class="content-wrapper">
 		<div class="col-lg-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Food-Menu Data-Table</h4>					
+					<h4 class="card-title">Special-Dish Data-Table</h4>					
 					<p class="card-description">
-						Food-Menu information table 
+						Special-Dish information table  
 					</p>
 
 					<?php if(session()->has('msg')): ?>
@@ -34,33 +34,36 @@
 							<tr>
 								<td class="w-32">
 									<img src="<?php echo e($data->img); ?>" alt="<?php echo e($data->name); ?>" class="!w-full !h-auto !rounded-none">
-								</td>
-								<td><?php echo e($data->name); ?></td>
+								</td>							
+								<td>
+									<p class="font-bold">
+		                <span class="text-amber-400"><?php echo e($data['namepart1']); ?></span> <span class="leading-normal"><?php echo e($data['namepart2']); ?></span>
+		              </p>
+		            </td>
 								<td><?php echo e($data->price); ?></td>								
 								<td class="max-w-[190px] min-w-[190px] !leading-normal !whitespace-normal break-words"><?php echo e($data->desc); ?></td>
 								<td><?php echo e($data->created_at); ?></td>
 								<td>
 									<a
-										href="<?php echo e(route('foodmenu.edit', $data->id)); ?>"
+										href="<?php echo e(route('spdish.edit', $data->id)); ?>"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									<?php if($isAdmin === true): ?>
-									<form method="POST" action="<?php echo e(route('foodmenu.destroy', $data->id)); ?>">
+									<form method="POST" action="<?php echo e(route('spdish.destroy', $data->id)); ?>">
 						        <?php echo method_field('DELETE'); ?>
 										<?php echo csrf_field(); ?>
-
 					        	<button 
 					        		type="submit" 
 					        		class="badge badge-danger cursor-pointer" 
-					        		onclick="return confirmDeleteFood(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
+					        		onclick="return confirmDeleteSpDish(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
 					        		>Delete</button>
 								  </form>
 									<?php else: ?>
 									<button
-										onclick="alert('Only admin can delete food menu')"
+										onclick="alert('Only admin can special dish info')"
 										class="badge badge-danger cursor-pointer"
 										>Delete</button>
 									<?php endif; ?>
@@ -74,8 +77,8 @@
 		</div>
 	</div>
 	<script>
-  function confirmDeleteFood(id, name) {
-      if(!confirm("Are You Sure to delete this food menu, Named: " + name + ", Id: " + id + "." ))
+  function confirmDeleteSpDish(id, name) {
+      if(!confirm("Are You Sure to delete this special dish item, Named: " + name + ", Id: " + id + "." ))
       event.preventDefault();
   }
  </script>
@@ -85,4 +88,4 @@
 <?php $component = $__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737; ?>
 <?php unset($__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737); ?>
 <?php endif; ?>
-<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/foodmenu/foodmenulist.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/spdishes/spdishes.blade.php ENDPATH**/ ?>

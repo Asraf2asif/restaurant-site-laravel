@@ -11,7 +11,8 @@
 					<div class="card-body">
 						<h4 class="card-title">Special Dishes Form</h4>
 						<p class="card-description">Edit special dishes info</p>
-						<form action="<?php echo e(url('/admin/spdish/edit', $data->id )); ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php echo e(route('spdish.update', $data->id )); ?>" method="post" enctype="multipart/form-data">
+							<?php echo method_field('PUT'); ?>
 							<?php echo csrf_field(); ?>
 							<div class="form-group">
 								<label for="spdishesname1edit">Name first part</label>
@@ -83,8 +84,12 @@
 								><?php echo e($data->desc); ?></textarea>
 							</div>
 
-							<button onclick="alert('Only admin can edit spdish item')" type="submit" class="btn btn-primary mr-2">Edit</button>
-							<a href="<?php echo e(url("/admin/spdishlist")); ?>" class="btn btn-light">Cancel</a>
+							<?php if($isAdmin === true): ?>
+							<button type="submit" class="btn btn-primary mr-2">Edit</button>
+							<?php else: ?>
+							<button onclick="alert('Only admin can edit spdish item')" type="button" class="btn btn-primary mr-2">Edit</button>
+							<?php endif; ?>
+							<a href="<?php echo e(route('spdish.index')); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>

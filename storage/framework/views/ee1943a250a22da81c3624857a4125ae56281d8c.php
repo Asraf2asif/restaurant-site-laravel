@@ -6,7 +6,7 @@
       <p class="pt-2 text-[14px] font-sans-lato text-slate-100 leading-relaxed">Beast kind form divide night above let moveth bearing darkness.</p>
     </div>
 
-    <form action="<?php echo e(url('/makereservation')); ?>"  method="post" enctype="multipart/form-data" class="bg-slate-800/75 border-2 inline-block mx-5 md:mx-0 px-1.5 md:px-6 py-4 pb-5 md:py-8 md:pb-8 shadow-md">
+    <form action="<?php echo e(route('reservation.store')); ?>"  method="post" enctype="multipart/form-data" class="bg-slate-800/75 border-2 inline-block mx-5 md:mx-0 px-1.5 md:px-6 py-4 pb-5 md:py-8 md:pb-8 shadow-md">
       <?php echo csrf_field(); ?>
       <div class="flex flex-wrap items-center justify-center">
         <div class="m-3 relative">

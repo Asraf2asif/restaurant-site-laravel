@@ -5,17 +5,22 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 	<div class="content-wrapper">
-		<a href="<?php echo e(url('/admin/spdish/addform')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
+		<a href="<?php echo e(route('spdish.create')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
 
 	<div class="content-wrapper">
 		<div class="col-lg-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Admin data</h4>					
+					<h4 class="card-title">Special-Dish Data-Table</h4>					
 					<p class="card-description">
-						Add class <code>.table-hover</code> 
+						Special-Dish information table  
 					</p>
+
+					<?php if(session()->has('msg')): ?>
+					<p class="alert alert-info"><?php echo e(session()->get('msg')); ?></p>
+					<?php endif; ?>
+					
 					<table class="table table-hover overflow-auto block">
 						<thead>
 							<tr class="bg-slate-800">
@@ -40,18 +45,22 @@
 								<td><?php echo e($data->created_at); ?></td>
 								<td>
 									<a
-										href="<?php echo e(url('/admin/spdish/editform', $data->id)); ?>"
+										href="<?php echo e(route('spdish.edit', $data->id)); ?>"
 										class="badge badge-primary cursor-pointer"
 										>Edit</a
 									>
 								</td>
 								<td>
 									<?php if($isAdmin === true): ?>
-									<a
-										onclick="return confirmDeleteFood(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
-										href="<?php echo e(url('/admin/spdish/del', $data->id)); ?>"
-										class="badge badge-danger cursor-pointer"
-										>Delete</a>
+									<form method="POST" action="<?php echo e(route('spdish.destroy', $data->id)); ?>">
+						        <?php echo method_field('DELETE'); ?>
+										<?php echo csrf_field(); ?>
+					        	<button 
+					        		type="submit" 
+					        		class="badge badge-danger cursor-pointer" 
+					        		onclick="return confirmDeleteSpDish(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
+					        		>Delete</button>
+								  </form>
 									<?php else: ?>
 									<button
 										onclick="alert('Only admin can special dish info')"
@@ -68,7 +77,7 @@
 		</div>
 	</div>
 	<script>
-  function confirmDeleteFood(id, name) {
+  function confirmDeleteSpDish(id, name) {
       if(!confirm("Are You Sure to delete this special dish item, Named: " + name + ", Id: " + id + "." ))
       event.preventDefault();
   }

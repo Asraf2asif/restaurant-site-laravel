@@ -9,33 +9,46 @@
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Food-Menu Form</h4>
-						<p class="card-description">Edit food menu info</p>
-						<form action="<?php echo e(route('foodmenu.update', $data->id )); ?>" method="post" enctype="multipart/form-data">
+						<h4 class="card-title">Testimonial Form</h4>
+						<p class="card-description">Edit testimonial info</p>
+						<form action="<?php echo e(route('review.update', $data->id )); ?>" method="post" enctype="multipart/form-data">
 							<?php echo method_field('PUT'); ?>
 							<?php echo csrf_field(); ?>
 							<div class="form-group">
-								<label for="productname">Name</label>
+								<label for="reviewname">Name</label>
 								<input
 									type="text"
 									class="form-control"
-									id="productname"
-									name="productname"
+									id="reviewname"
+									name="reviewname"
 									value="<?php echo e($data->name); ?>"
-									placeholder="Input product name"
+									placeholder="Input Client name"
 									required
 								/>
 							</div>
 
 							<div class="form-group">
-								<label for="productprice">Price</label>
+								<label for="reviewbio">Bio</label>
+								<input
+									type="text"
+									class="form-control"
+									id="reviewbio"
+									name="reviewbio"
+									value="<?php echo e($data->bio); ?>"
+									placeholder="Input Client Bio"
+									required
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="reviewrating">Rating</label>
 								<input
 									type="number"
 									class="form-control"
-									id="productprice"
-									name="productprice"
-									value="<?php echo e($data->price); ?>"
-									placeholder="Input product price up to 2 decimal places"
+									id="reviewrating"
+									name="reviewrating"
+									value="<?php echo e($data->rating); ?>"
+									placeholder="Input Review Rating up to 2 decimal places"
 									pattern="[0-9]+([\.,][0-9]+)?" 
 									step="0.01"
 									repuired
@@ -48,27 +61,27 @@
 									<input
 										type="file"
 										class="form-control file-upload-info"
-										placeholder="Upload product image"
-										id="productimageupdate"
-										name="productimage"
+										placeholder="Upload review image"
+										id="reviewimageupdate"
+										name="reviewimage"
 										value="<?php echo e($data->img); ?>"
 									/>
 								</div>
 							</div>
 							<div class="form-group">
-								<img id="tempproductimageedit" src="<?php echo e($data->img); ?>" alt="<?php echo e($data->name); ?>" class="h-auto shadow-sm w-1/2" />
+								<img id="tempreviewimageedit" src="<?php echo e($data->img); ?>" alt="<?php echo e($data->name); ?>" class="h-auto shadow-sm w-1/2" />
 							</div>
 
 							<div class="form-group">
-								<label for="productdescription">Description</label>
+								<label for="reviewtext">Review</label>
 								<textarea
 									class="form-control"
-									id="productdescription"
-									name="productdescription"
+									id="reviewtext"
+									name="reviewtext"
 									rows="4"
 									required
-									placeholder="Input product description"
-								><?php echo e($data->desc); ?></textarea>
+									placeholder="Input Client Review"
+								><?php echo e($data->review); ?></textarea>
 							</div>
 
 							<?php if($isAdmin === true): ?>
@@ -76,7 +89,7 @@
 							<?php else: ?>
 							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
 							<?php endif; ?>
-							<a href="<?php echo e(route("foodmenu.index")); ?>" class="btn btn-light">Cancel</a>
+							<a href="<?php echo e(route("review.index")); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
@@ -84,10 +97,10 @@
 		</div>
 	</div>
 	<script>
-		productimageupdate.onchange = evt => {
-		  const [file] = productimageupdate.files
+		reviewimageupdate.onchange = evt => {
+		  const [file] = reviewimageupdate.files
 		  if (file) {
-		    tempproductimageedit.src = URL.createObjectURL(file)
+		    tempreviewimageedit.src = URL.createObjectURL(file)
 		  }
 		}
 		
@@ -98,4 +111,4 @@
 <?php $component = $__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737; ?>
 <?php unset($__componentOriginal59c2d7c0c48f93f56b3d4e9fec7b6da284fc6737); ?>
 <?php endif; ?>
-<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/foodmenu/editfoodmenu.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\My Work\web\Resturent-Site\resources\views/admin/pages/review/editreview.blade.php ENDPATH**/ ?>

@@ -3,155 +3,62 @@
   class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
 >
   <div class="navbar-brand-wrapper d-flex align-items-center">
-    <a class="navbar-brand brand-logo" href="index.html">
-      <img src="admin/images/logo.svg" alt="logo" class="logo-dark" />
-    </a>
-    <a class="navbar-brand brand-logo-mini" href="index.html">
-      <img src="admin/images/logo-mini.svg" alt="logo" />
+    <a href="<?php echo e(route('admin.index')); ?>">
+      <img src="assets/images/logo/logo2.png" alt="logo" class="logo-dark w-32" />
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
     <h5 class="mb-0 font-weight-medium d-none d-lg-flex">
-      Welcome stallar dashboard!
+      Welcome to foodfun admin dashboard!
     </h5>
     <ul class="navbar-nav navbar-nav-right ml-auto">
-      <form class="search-form d-none d-md-block" action="#">
-        <i class="icon-magnifier"></i>
-        <input
-          type="search"
-          class="form-control"
-          placeholder="Search Here"
-          title="Search here"
-        />
-      </form>
-      <li class="nav-item">
-        <a href="#" class="nav-link"><i class="icon-basket-loaded"></i></a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link"><i class="icon-chart"></i></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link count-indicator message-dropdown"
-          id="messageDropdown"
-          href="#"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="icon-speech"></i>
-          <span class="count">7</span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-          aria-labelledby="messageDropdown"
-        >
-          <a class="dropdown-item py-3">
-            <p class="mb-0 font-weight-medium float-left">
-              You have 7 unread mails
-            </p>
-            <span class="badge badge-pill badge-primary float-right"
-              >View all</span
-            >
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <img
-                src="admin/images/faces/face10.jpg"
-                alt="image"
-                class="img-sm profile-pic"
-              />
-            </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">
-                Marian Garner
-              </p>
-              <p class="font-weight-light small-text">
-                The meeting is cancelled
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <img
-                src="admin/images/faces/face12.jpg"
-                alt="image"
-                class="img-sm profile-pic"
-              />
-            </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">
-                David Grey
-              </p>
-              <p class="font-weight-light small-text">
-                The meeting is cancelled
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <img
-                src="admin/images/faces/face1.jpg"
-                alt="image"
-                class="img-sm profile-pic"
-              />
-            </div>
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis font-weight-medium text-dark">
-                Travis Jenkins
-              </p>
-              <p class="font-weight-light small-text">
-                The meeting is cancelled
-              </p>
-            </div>
-          </a>
-        </div>
+      <li>
+        <a href="<?php echo e(route('index')); ?>" class="bedge-primary bg-amber-500 font-bold p-2.5 rounded text-white" target="_blank">Browse foodfun site</a>
       </li>
       <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
         <a
-          class="nav-link dropdown-toggle"
+          class="nav-link dropdown-toggle cursor-pointer"
           id="UserDropdown"
-          href="#"
           data-toggle="dropdown"
           aria-expanded="false"
         >
-          <?php if($isAdmin === true): ?>
-          <img
-            class="img-xs rounded-circle ml-2"
-            src="admin/images/faces/face8.jpg"
-            alt="Profile image"
-          />
-          <span class="font-weight-normal"> <?php echo e($user->name); ?> </span>
+          <?php if($user !== null): ?>
+            <?php if($user->img): ?>
+            <img
+              class="img-xs rounded-circle ml-2 cursor-pointer"
+              src="<?php echo e($user->img); ?>"
+              alt="Profile image"
+            />
+            <?php else: ?>
+            <i class="cursor-pointer fa-solid fa-user pr-2 rounded-circle text-6xl text-black-50"></i>
+            <?php endif; ?>
+          <span class="font-weight-normal cursor-pointer"> <?php echo e($user->name); ?> </span>
           <?php else: ?>
-          <span class="font-weight-normal"> user </span>
+          <i class="cursor-pointer fa-solid fa-user pr-2 rounded-circle text-6xl text-black-50"></i>
+          <span class="font-weight-normal cursor-pointer"> Guest </span>
           <?php endif; ?>
         </a>
         <div
           class="dropdown-menu dropdown-menu-right navbar-dropdown"
           aria-labelledby="UserDropdown"
         >
-          <?php if($isAdmin === true): ?>
+          <?php if($user !== null): ?>
           <div class="dropdown-header text-center">
+            <?php if($user->img): ?>
             <img
-              class="img-md rounded-circle"
-              src="admin/images/faces/face8.jpg"
+              class="img-md rounded-circle m-auto"
+              src="<?php echo e($user->img); ?>"
               alt="Profile image"
             />
+            <?php else: ?>
+            <i class="cursor-pointer fa-solid fa-user m-0 p-0 rounded-circle text-6xl text-black-50"></i>
+            <?php endif; ?>
             <p class="mb-1 mt-3"><?php echo e($user->name); ?></p>
             <p class="font-weight-light text-muted mb-0">
               <?php echo e($user->email); ?>
 
             </p>
           </div>
-          <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-speech text-primary"></i> Messages
-          </a>
-          <a class="dropdown-item"
-            ><i class="dropdown-item-icon icon-energy text-primary"></i> Activity
-          </a>
-          <a class="dropdown-item">
-            <i class="dropdown-item-icon icon-question text-primary"></i> FAQ
-          </a>
 
           <!-- Account Management -->
           <div class="block px-4 py-2 text-xs text-gray-400">

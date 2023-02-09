@@ -11,7 +11,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Food-Menu Form</h4>
 						<p class="card-description">Add food menu info</p>
-						<form action="<?php echo e(url('/admin/foodmenu/addform')); ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php echo e(route('foodmenu.store')); ?>" method="post" enctype="multipart/form-data">
 							<?php echo csrf_field(); ?>
 							<div class="form-group">
 								<label for="productname">Name</label>
@@ -68,8 +68,12 @@
 								></textarea>
 							</div>
 
-							<button onclick="alert('Only admin can add food menu')" type="submit" class="btn btn-primary mr-2">Add</button>
-							<a href="<?php echo e(url("/admin/foodmenulist")); ?>" class="btn btn-light">Cancel</a>
+							<?php if($isAdmin === true): ?>
+							<button type="submit" class="btn btn-primary mr-2">Add</button>
+							<?php else: ?>
+							<button onclick="alert('Only admin can add food menu')" type="button" class="btn btn-primary mr-2">Add</button>
+							<?php endif; ?>
+							<a href="<?php echo e(route("foodmenu.index")); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
