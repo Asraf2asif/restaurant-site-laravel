@@ -1,4 +1,4 @@
-<x-home.index :user="$user" :isAdmin="$isAdmin">
+<x-admin.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
 		<a href="{{ route('specialdishes.create') }}" class="btn btn-primary mx-2">Add Special Dish</a>
 	</div>
@@ -77,4 +77,4 @@
       event.preventDefault();
   }
  </script>
-</x-home.index>
+</x-admin.index>

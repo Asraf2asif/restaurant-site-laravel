@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Testimonial;
 
 
 class AdminController extends Controller
@@ -28,6 +29,7 @@ class AdminController extends Controller
     {
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
-        return view("admin.index", compact("user", "isAdmin"));
+        $testimonial = testimonial::take(4)->get();
+        return view("admin.index", compact("user", "isAdmin", "testimonial"));
     }
 }

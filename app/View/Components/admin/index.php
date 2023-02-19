@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\home;
+namespace App\View\Components\admin;
 
 use Illuminate\View\Component;
 
@@ -19,18 +19,29 @@ class index extends Component
      * @var string
      */
     public $isAdmin;
+
+    /**
+     * reservation list.
+     *
+     * @var string
+     */
+    public $testimonial;
  
     /**
      * Create the component instance.
      *
      * @param  string  $user
      * @param  string  $isAdmin
+     * @param  array  $testimonial
      * @return void
      */
-    public function __construct($user, $isAdmin)
+    public function __construct($user, $isAdmin, $testimonial = null)
     {
         $this->user = $user;
         $this->isAdmin = $isAdmin;
+        if(!null) {
+            $this->testimonial = $testimonial;
+        }
     }
 
     /**

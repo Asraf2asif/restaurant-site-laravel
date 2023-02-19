@@ -127,7 +127,7 @@
 								</x-jet-dropdown-link>
 								@endif
 								<div class="border-t border-gray-100"></div>
-								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}">
+								<x-jet-dropdown-link class="text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right" href="{{ route('admin.index') }}" target="_blank">
 									Dashboard
 								</x-jet-dropdown-link>
 							</x-slot>

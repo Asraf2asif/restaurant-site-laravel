@@ -1,4 +1,4 @@
-<x-home.index :user="$user" :isAdmin="$isAdmin">
+<x-admin.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
 		<div class="col-lg-8 grid-margin stretch-card">
 			<div class="card">
@@ -62,4 +62,4 @@
       event.preventDefault();
   }
  </script>
-</x-home.index>
+</x-admin.index>

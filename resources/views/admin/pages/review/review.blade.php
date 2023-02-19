@@ -1,4 +1,4 @@
-<x-home.index :user="$user" :isAdmin="$isAdmin">
+<x-admin.index :user="$user" :isAdmin="$isAdmin">
 	<div class="content-wrapper">
 		<a href="{{ route('testimonial.create') }}" class="btn btn-primary mx-2">Add Testimonial</a>
 	</div>
@@ -74,4 +74,4 @@
       event.preventDefault();
   }
  </script>
-</x-home.index>
+</x-admin.index>
