@@ -13,7 +13,7 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 - Reusable, clever, best-practice coding.
 - and more...
 
-### Foundation Technology
+## Foundation Technology
 
 - UI/UX Design
 - HTML5
