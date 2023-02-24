@@ -17,7 +17,7 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 
 - UI/UX Design
 - HTML5
-- Tailwind
+- CSS3
 - PostCSS
 - MySQL
 - PHP
@@ -26,6 +26,10 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 
 ### Live URL
 [foodfun-asraf2asif.000webhostapp.com](https://foodfun-asraf2asif.000webhostapp.com)
+
+## Credit
+- Design Inspiration - [colorlib](https://colorlib.com/wp/template/foodfun/)
+- Image from - [unsplash](https://unsplash.com/)
 
 ## Author & copyright
 
