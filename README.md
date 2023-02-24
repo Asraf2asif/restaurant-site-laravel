@@ -27,6 +27,6 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 ### Live Url
 [foodfun-asraf2asif.000webhostapp.com](https://foodfun-asraf2asif.000webhostapp.com)
 
-### Author & copyright
+## Author & copyright
 
 This project is owned by [Asraf2asif](https://github.com/Asraf2asif) for this [portfolio](https://asraf2asif-portfolio.vercel.app/)
