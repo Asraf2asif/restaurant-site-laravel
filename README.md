@@ -24,7 +24,7 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 - Laravel
 - jQuery
 
-### Live Url
+### Live URL
 [foodfun-asraf2asif.000webhostapp.com](https://foodfun-asraf2asif.000webhostapp.com)
 
 ## Author & copyright
