@@ -17,7 +17,7 @@ system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum b
 
 - UI/UX Design
 - HTML5
-- CSS3
+- Tailwind
 - PostCSS
 - MySQL
 - PHP
