@@ -2,107 +2,69 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile">
-      <a href="#" class="nav-link">
+      <a class="nav-link" href="<?php echo e(route('admin.index')); ?>">
+        <?php if($user !== null): ?>
         <div class="profile-image">
+          <?php if($user->img): ?>
           <img
-            class="img-xs rounded-circle"
-            src="admin/images/faces/face8.jpg"
-            alt="profile image"
+            class="img-xs rounded-circle ml-2 cursor-pointer"
+            src="<?php echo e($user->img); ?>"
+            alt="Profile image"
           />
-          <div class="dot-indicator bg-success"></div>
+          <?php else: ?>
+          <i class="fa-solid fa-user pr-2 rounded-circle text-4xl text-black-50 text-white-50"></i>
+          <?php endif; ?>
         </div>
         <div class="text-wrapper">
-          <p class="profile-name"><?php echo e(Auth::user()->name); ?></p>
-          <p class="designation">Administrator</p>
+          <p class="profile-name"><?php echo e($user->name); ?></p>
+          <?php if($isAdmin === true): ?>
+            <p class="designation">Administrator</p>
+          <?php else: ?>
+            <p class="designation">General User</p>
+          <?php endif; ?>
         </div>
-        <div class="icon-container">
-          <i class="icon-bubbles"></i>
-          <div class="dot-indicator bg-danger"></div>
+        <?php else: ?>
+        <i class="fa-solid fa-user pr-2 rounded-circle text-4xl text-black-50 text-white-50"></i>
+        <div class="text-wrapper">
+          <p class="profile-name">Guest User</p>
+          <p class="designation">Guest</p>
         </div>
+        <?php endif; ?>
       </a>
     </li>
     <li class="nav-item nav-category">
-      <span class="nav-link">Dashboard Section</span>
+      <span class="nav-link">Tables</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
-        <span class="menu-title">Dashboard</span>
-        <i class="icon-screen-desktop menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item nav-category">
-      <span class="nav-link">UI Elements Section</span>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?php echo e(url('/users')); ?>">
+      <a class="nav-link" href="<?php echo e(route('user.index')); ?>">
         <span class="menu-title">Users</span>
-        <i class="icon-layers menu-icon"></i>
+        <i class="fa-solid fa-users menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo e(url('/foodmenu')); ?>">
-        <span class="menu-title">Food Menu</span>
-        <i class="icon-globe menu-icon"></i>
+      <a class="nav-link" href="<?php echo e(route('foodmenu.index')); ?>">
+        <span class="menu-title">Food Menu</span>        
+        <i class="fa-solid fa-bowl-rice menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/forms/basic_elements.html">
-        <span class="menu-title">Chefs</span>
-        <i class="icon-book-open menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="pages/charts/chartist.html">
+      <a class="nav-link" href="<?php echo e(route('reservation.index')); ?>">
         <span class="menu-title">Reservations</span>
-        <i class="icon-chart menu-icon"></i>
+        <i class="fa-solid fa-table menu-icon"></i>
       </a>
-    </li>
-
-    <li class="nav-item nav-category">
-      <span class="nav-link">Sample Pages Section</span>
     </li>
     <li class="nav-item">
-      <a
-        class="nav-link"
-        data-toggle="collapse"
-        href="#auth"
-        aria-expanded="false"
-        aria-controls="auth"
-      >
-        <span class="menu-title">General Pages</span>
-        <i class="icon-doc menu-icon"></i>
+      <a class="nav-link" href="<?php echo e(route('specialdishes.index')); ?>">
+        <span class="menu-title">Special dishes</span>
+        <i class="fa-solid fa-bell-concierge menu-icon"></i>
       </a>
-      <div class="collapse" id="auth">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item">
-            <a class="nav-link" href="admin/pages/samples/login.html">
-              Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin/pages/samples/register.html">
-              Register
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin/pages/samples/error-404.html">
-              404
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin/pages/samples/error-500.html">
-              500
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin/pages/samples/blank-page.html">
-              Blank Page
-            </a>
-          </li>
-        </ul>
-      </div>
     </li>
-    
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo e(route('testimonial.index')); ?>">
+        <span class="menu-title">Testimonials</span>
+        <i class="fa-solid fa-star-half-stroke menu-icon"></i>
+      </a>
+    </li>
   </ul>
 </nav>
 <?php /**PATH E:\My Work\web\Resturent-Site\resources\views\admin\partials\sidebar.blade.php ENDPATH**/ ?>

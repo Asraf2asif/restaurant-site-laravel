@@ -4,7 +4,7 @@
 	  <div class="mx-4 lg:flex lg:items-center">
 	    <div class="flex items-center justify-between">
 	      <div class="lg:shrink-0">
-	        <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
+	        <a href="<?php echo e(route('index')); ?>"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
 	      </div>
 	      <div class="nav-ham p-4 lg:hidden cursor-pointer transition ease-in-out duration-75 open">
 	      	<?php $__currentLoopData = [1, 2, 3]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -131,6 +131,20 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 								</form>
+								<div class="border-t border-gray-100"></div>
+								<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown-link','data' => ['class' => 'text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right','href' => ''.e(route('admin.index')).'','target' => '_blank']]); ?>
+<?php $component->withName('jet-dropdown-link'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['class' => 'text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right','href' => ''.e(route('admin.index')).'','target' => '_blank']); ?>
+									Dashboard
+								 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
 							 <?php $__env->endSlot(); ?>
 						 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -189,6 +203,20 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 								<?php endif; ?>
+								<div class="border-t border-gray-100"></div>
+								<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown-link','data' => ['class' => 'text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right','href' => ''.e(route('admin.index')).'','target' => '_blank']]); ?>
+<?php $component->withName('jet-dropdown-link'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['class' => 'text-right p-2.5 text-sm font-bold text-slate-800 uppercase text-[12.5px] text-gray-500 text-right','href' => ''.e(route('admin.index')).'','target' => '_blank']); ?>
+									Dashboard
+								 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
 							 <?php $__env->endSlot(); ?>
 						 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

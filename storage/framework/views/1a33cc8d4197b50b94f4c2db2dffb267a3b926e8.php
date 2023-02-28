@@ -16,15 +16,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('api.api-token-manager')->html();
-} elseif ($_instance->childHasBeenRendered('AR8hXFz')) {
-    $componentId = $_instance->getRenderedChildComponentId('AR8hXFz');
-    $componentTag = $_instance->getRenderedChildComponentTagName('AR8hXFz');
+} elseif ($_instance->childHasBeenRendered('qDLzBgP')) {
+    $componentId = $_instance->getRenderedChildComponentId('qDLzBgP');
+    $componentTag = $_instance->getRenderedChildComponentTagName('qDLzBgP');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('AR8hXFz');
+    $_instance->preserveRenderedChild('qDLzBgP');
 } else {
     $response = \Livewire\Livewire::mount('api.api-token-manager');
     $html = $response->html();
-    $_instance->logRenderedChild('AR8hXFz', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('qDLzBgP', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
