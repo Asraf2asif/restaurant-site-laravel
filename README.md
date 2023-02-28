@@ -4,7 +4,9 @@
 ## Foodfun-Restaurant Site PHP Laravel Portfolio Project
 
 A responsive, modern PHP-Laravel restaurant site with an admin dashboard with a content control 
-system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum browser compatibility. Its clean, responsible, and material design will be further improved, Its features:
+system (CURD). It's a Tailwind-styled page and PostCSS plugin used for maximum browser compatibility. Its clean, responsible, and material design will be further improved.
+
+### Its features:
 
 - Simple, clean, attractive UI.
 - Responsive, compatible to all major browser and version.
